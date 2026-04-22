@@ -130,7 +130,7 @@ mobileMenu.querySelectorAll('a').forEach(link => {
 
 // ── Cookie modal
 const cookieOverlay = document.getElementById('cookie-overlay');
-if (localStorage.getItem('cookieChoice')) {
+if (localStorage.getItem('cookieChoice') || localStorage.getItem('cookieAccepted')) {
   cookieOverlay.classList.add('hidden');
 }
 document.getElementById('cookie-accept').addEventListener('click', () => {

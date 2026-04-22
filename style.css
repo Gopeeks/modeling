@@ -402,6 +402,7 @@ footer {
 #cookie-overlay.hidden {
   opacity: 0;
   pointer-events: none;
+  display: none;
 }
 #cookie-banner {
   background: var(--dark);
