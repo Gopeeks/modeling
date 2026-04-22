@@ -386,37 +386,51 @@ footer {
   transform: translateY(0);
 }
 
-/* ── COOKIE BANNER ── */
-#cookie-banner {
+/* ── COOKIE MODAL ── */
+#cookie-overlay {
   position: fixed;
-  bottom: 1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
+  inset: 0;
   z-index: 300;
+  background: rgba(0,0,0,0.5);
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  background: rgba(20,20,20,0.95);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(201,169,110,0.2);
-  padding: 0.9rem 1.25rem 0.9rem 1.5rem;
-  max-width: 560px;
-  width: calc(100% - 3rem);
-  transition: opacity 0.4s, transform 0.4s;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 1;
+  transition: opacity 0.5s ease;
 }
-#cookie-banner.hidden {
+#cookie-overlay.hidden {
   opacity: 0;
-  transform: translateX(-50%) translateY(1rem);
   pointer-events: none;
 }
+#cookie-banner {
+  background: var(--dark);
+  border: 1px solid rgba(201,169,110,0.25);
+  padding: 2.5rem;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+#cookie-banner h3 {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--white);
+  margin-bottom: 0.75rem;
+}
 #cookie-banner p {
-  font-size: 0.72rem;
-  line-height: 1.6;
+  font-size: 0.75rem;
+  line-height: 1.8;
   color: var(--muted);
-  flex: 1;
+  margin-bottom: 2rem;
+}
+.cookie-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
 }
 #cookie-accept {
-  flex-shrink: 0;
   font-family: var(--font-sans);
   font-size: 0.62rem;
   letter-spacing: 0.2em;
@@ -424,11 +438,24 @@ footer {
   color: var(--black);
   background: var(--gold);
   border: none;
-  padding: 0.55rem 1.1rem;
+  padding: 0.75rem 1.75rem;
   cursor: pointer;
   transition: opacity 0.3s;
 }
 #cookie-accept:hover { opacity: 0.85; }
+#cookie-decline {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 0.75rem 1.75rem;
+  cursor: pointer;
+  transition: color 0.3s, border-color 0.3s;
+}
+#cookie-decline:hover { color: var(--white); border-color: rgba(255,255,255,0.3); }
 
 /* ── HAMBURGER ── */
 .nav-toggle {

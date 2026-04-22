@@ -128,14 +128,18 @@ mobileMenu.querySelectorAll('a').forEach(link => {
   });
 });
 
-// ── Cookie banner
-const cookieBanner = document.getElementById('cookie-banner');
-if (localStorage.getItem('cookieAccepted')) {
-  cookieBanner.classList.add('hidden');
+// ── Cookie modal
+const cookieOverlay = document.getElementById('cookie-overlay');
+if (localStorage.getItem('cookieChoice')) {
+  cookieOverlay.classList.add('hidden');
 }
 document.getElementById('cookie-accept').addEventListener('click', () => {
-  localStorage.setItem('cookieAccepted', '1');
-  cookieBanner.classList.add('hidden');
+  localStorage.setItem('cookieChoice', 'accepted');
+  cookieOverlay.classList.add('hidden');
+});
+document.getElementById('cookie-decline').addEventListener('click', () => {
+  localStorage.setItem('cookieChoice', 'declined');
+  cookieOverlay.classList.add('hidden');
 });
 
 // ── Smooth scroll
