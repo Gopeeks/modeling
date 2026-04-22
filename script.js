@@ -70,6 +70,24 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowLeft')   showPrev();
 });
 
+// ── Hamburger menu
+const toggle     = document.querySelector('.nav-toggle');
+const mobileMenu = document.getElementById('mobileMenu');
+
+toggle.addEventListener('click', () => {
+  const open = mobileMenu.classList.toggle('open');
+  toggle.classList.toggle('open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+
+mobileMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    toggle.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
 // ── Smooth scroll for nav links
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', (e) => {
@@ -79,4 +97,12 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
       target.scrollIntoView({ behavior: 'smooth' });
     }
   });
+});
+
+// ── Lightbox swipe support (mobile)
+let touchStartX = 0;
+lightbox.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+lightbox.addEventListener('touchend', (e) => {
+  const diff = touchStartX - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 50) diff > 0 ? showNext() : showPrev();
 });
