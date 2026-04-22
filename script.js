@@ -128,6 +128,16 @@ mobileMenu.querySelectorAll('a').forEach(link => {
   });
 });
 
+// ── Cookie banner
+const cookieBanner = document.getElementById('cookie-banner');
+if (localStorage.getItem('cookieAccepted')) {
+  cookieBanner.classList.add('hidden');
+}
+document.getElementById('cookie-accept').addEventListener('click', () => {
+  localStorage.setItem('cookieAccepted', '1');
+  cookieBanner.classList.add('hidden');
+});
+
 // ── Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', (e) => {

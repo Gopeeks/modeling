@@ -386,6 +386,50 @@ footer {
   transform: translateY(0);
 }
 
+/* ── COOKIE BANNER ── */
+#cookie-banner {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: rgba(20,20,20,0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(201,169,110,0.2);
+  padding: 0.9rem 1.25rem 0.9rem 1.5rem;
+  max-width: 560px;
+  width: calc(100% - 3rem);
+  transition: opacity 0.4s, transform 0.4s;
+}
+#cookie-banner.hidden {
+  opacity: 0;
+  transform: translateX(-50%) translateY(1rem);
+  pointer-events: none;
+}
+#cookie-banner p {
+  font-size: 0.72rem;
+  line-height: 1.6;
+  color: var(--muted);
+  flex: 1;
+}
+#cookie-accept {
+  flex-shrink: 0;
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--gold);
+  border: none;
+  padding: 0.55rem 1.1rem;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+#cookie-accept:hover { opacity: 0.85; }
+
 /* ── HAMBURGER ── */
 .nav-toggle {
   display: none;
