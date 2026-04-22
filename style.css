@@ -287,6 +287,21 @@ body {
   background: rgba(8,8,8,0.2);
 }
 
+/* ── DEV LABELS (localhost only) ── */
+.dev-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.75);
+  color: #c9a96e;
+  font-family: monospace;
+  font-size: 0.65rem;
+  padding: 0.3rem 0.5rem;
+  pointer-events: none;
+  z-index: 10;
+}
+
 /* ── LIGHTBOX ── */
 #lightbox {
   display: none;

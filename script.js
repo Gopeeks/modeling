@@ -23,10 +23,15 @@ document.getElementById('footer-text').textContent   = SITE.footerText;
 
 // ── Build portfolio grid from config
 const grid = document.getElementById('grid');
-SITE.photos.forEach(({ file, size }) => {
+const isDev = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+
+SITE.photos.forEach(({ file, size }, index) => {
   const div = document.createElement('div');
   div.className = `grid-item reveal${size === 'tall' ? ' tall' : ''}${size === 'wide' ? ' wide' : ''}`;
-  div.innerHTML = `<img src="${file}" alt=""><div class="grid-overlay"></div>`;
+  const label = isDev
+    ? `<div class="dev-label">#${index} · ${file.replace('photos/', '')}</div>`
+    : '';
+  div.innerHTML = `<img src="${file}" alt=""><div class="grid-overlay"></div>${label}`;
   grid.appendChild(div);
 });
 
