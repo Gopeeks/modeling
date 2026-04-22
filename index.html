@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gopika — Model Portfolio</title>
+  <title id="page-title">Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
 
   <!-- NAV -->
   <nav id="nav">
-    <div class="nav-name">Gopika</div>
+    <div class="nav-name" id="nav-name"></div>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#portfolio">Portfolio</a></li>
@@ -33,12 +33,12 @@
 
   <!-- HERO -->
   <section id="hero">
-    <div class="hero-bg" style="background-image: url('photos/PGN_5848.jpg')"></div>
+    <div class="hero-bg" id="hero-bg"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <p class="hero-sub reveal">Model &amp; Creative</p>
-      <h1 class="hero-name reveal">Gopika</h1>
-      <a href="#portfolio" class="hero-cta reveal">View Portfolio</a>
+      <p class="hero-sub reveal" id="hero-tagline"></p>
+      <h1 class="hero-name reveal" id="hero-name"></h1>
+      <a class="hero-cta reveal" id="hero-cta" href="#portfolio">View Portfolio</a>
     </div>
     <div class="scroll-indicator"><span></span></div>
   </section>
@@ -47,17 +47,13 @@
   <section id="about">
     <div class="about-inner">
       <div class="about-image reveal">
-        <img src="photos/PGN_5921.jpg" alt="Gopika">
+        <img id="about-img" src="" alt="">
       </div>
       <div class="about-text reveal">
         <p class="section-label">About</p>
-        <h2>Presence.<br>Emotion.<br>Story.</h2>
-        <p class="about-body">
-          Every frame is a conversation. I bring authenticity, elegance, and
-          intention to every shoot — whether editorial, commercial, or artistic.
-          Based in the US, available worldwide.
-        </p>
-        <a href="#contact" class="btn-outline">Work Together</a>
+        <h2 id="about-heading"></h2>
+        <p class="about-body" id="about-body"></p>
+        <a class="btn-outline" id="about-cta" href="#contact"></a>
       </div>
     </div>
   </section>
@@ -68,39 +64,7 @@
       <p class="section-label">Portfolio</p>
       <h2>Selected Work</h2>
     </div>
-    <div class="grid">
-      <div class="grid-item tall reveal"><img src="photos/PGN_5948.jpg" alt=""><div class="grid-overlay"></div></div>
-      <div class="grid-item reveal"><img src="photos/PGN_5960.jpg" alt=""><div class="grid-overlay"></div></div>
-      <div class="grid-item reveal"><img src="photos/PGN_6062.jpg" alt=""><div class="grid-overlay"></div></div>
-      <div class="grid-item tall reveal"><img src="photos/PGN_6069.jpg" alt=""><div class="grid-overlay"></div></div>
-      <div class="grid-item wide reveal"><img src="photos/PGN_6316.jpg" alt=""><div class="grid-overlay"></div></div>
-      <div class="grid-item reveal"><img src="photos/PGN_6321.jpg" alt=""><div class="grid-overlay"></div></div>
-      <div class="grid-item reveal"><img src="photos/PGN_6348.jpg" alt=""><div class="grid-overlay"></div></div>
-      <div class="grid-item tall reveal"><img src="photos/PGN_6353.jpg" alt=""><div class="grid-overlay"></div></div>
-      <div class="grid-item reveal"><img src="photos/PGN_6418.jpg" alt=""><div class="grid-overlay"></div></div>
-      <div class="grid-item wide reveal"><img src="photos/PGN_6462.jpg" alt=""><div class="grid-overlay"></div></div>
-      <div class="grid-item reveal"><img src="photos/1.jpeg" alt=""><div class="grid-overlay"></div></div>
-      <div class="grid-item tall reveal"><img src="photos/2.jpeg" alt=""><div class="grid-overlay"></div></div>
-      <div class="grid-item reveal"><img src="photos/3.jpeg" alt=""><div class="grid-overlay"></div></div>
-      <div class="grid-item reveal"><img src="photos/4.jpeg" alt=""><div class="grid-overlay"></div></div>
-      <div class="grid-item wide reveal"><img src="photos/5.jpeg" alt=""><div class="grid-overlay"></div></div>
-      <div class="grid-item tall reveal"><img src="photos/IMG_9121.jpg" alt=""><div class="grid-overlay"></div></div>
-      <div class="grid-item reveal"><img src="photos/IMG_9128.jpg" alt=""><div class="grid-overlay"></div></div>
-      <div class="grid-item reveal"><img src="photos/IMG_9139.jpg" alt=""><div class="grid-overlay"></div></div>
-      <div class="grid-item wide reveal"><img src="photos/IMG_9145.jpg" alt=""><div class="grid-overlay"></div></div>
-      <div class="grid-item reveal"><img src="photos/IMG_9151.jpg" alt=""><div class="grid-overlay"></div></div>
-      <div class="grid-item reveal"><img src="photos/IMG_9164.jpg" alt=""><div class="grid-overlay"></div></div>
-      <div class="grid-item tall reveal"><img src="photos/IMG_9179.jpg" alt=""><div class="grid-overlay"></div></div>
-      <div class="grid-item reveal"><img src="photos/IMG_9214.jpg" alt=""><div class="grid-overlay"></div></div>
-      <div class="grid-item wide reveal"><img src="photos/IMG_9249.jpg" alt=""><div class="grid-overlay"></div></div>
-      <div class="grid-item reveal"><img src="photos/IMG_9254.jpg" alt=""><div class="grid-overlay"></div></div>
-      <div class="grid-item tall reveal"><img src="photos/IMG_9255.jpg" alt=""><div class="grid-overlay"></div></div>
-      <div class="grid-item reveal"><img src="photos/IMG_9263.jpg" alt=""><div class="grid-overlay"></div></div>
-      <div class="grid-item reveal"><img src="photos/IMG_9270.jpg" alt=""><div class="grid-overlay"></div></div>
-      <div class="grid-item wide reveal"><img src="photos/IMG_9276.jpg" alt=""><div class="grid-overlay"></div></div>
-      <div class="grid-item reveal"><img src="photos/IMG_9279.jpg" alt=""><div class="grid-overlay"></div></div>
-      <div class="grid-item reveal"><img src="photos/IMG_9282.jpg" alt=""><div class="grid-overlay"></div></div>
-    </div>
+    <div class="grid" id="grid"></div>
   </section>
 
   <!-- LIGHTBOX -->
@@ -115,21 +79,22 @@
   <section id="contact">
     <div class="contact-inner reveal">
       <p class="section-label">Contact</p>
-      <h2>Let's Create<br>Something Beautiful</h2>
-      <p class="contact-body">Available for editorial, commercial, and artistic collaborations.</p>
-      <a href="mailto:hello@gopika.com" class="btn-primary">hello@gopika.com</a>
+      <h2 id="contact-heading"></h2>
+      <p class="contact-body" id="contact-body"></p>
+      <a class="btn-primary" id="contact-email" href="#"></a>
       <div class="socials">
-        <a href="#" aria-label="Instagram">Instagram</a>
+        <a id="social-instagram" href="#">Instagram</a>
         <span>/</span>
-        <a href="#" aria-label="LinkedIn">LinkedIn</a>
+        <a id="social-linkedin" href="#">LinkedIn</a>
       </div>
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2026 Gopika. All rights reserved.</p>
+    <p id="footer-text"></p>
   </footer>
 
+  <script src="config.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
