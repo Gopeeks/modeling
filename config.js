@@ -25,7 +25,7 @@ Based in the US, available worldwide.`,
   contactHeading: ["Let's Create", "Something Beautiful"],
   contactBody: "Available for editorial, commercial, and artistic collaborations.",
   email:     "hello@gopika.com",
-  instagram: "https://instagram.com/yourhandle",
+  instagram: "https://instagram.com/gopeeks",
   linkedin:  "https://linkedin.com/in/yourhandle",
 
   // ── Footer

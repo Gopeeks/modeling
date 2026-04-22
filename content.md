@@ -56,7 +56,7 @@ contact_body:
 
 email:     hello@gopika.com
 
-instagram: https://instagram.com/yourhandle
+instagram: https://instagram.com/gopeeks
 linkedin:  https://linkedin.com/in/yourhandle
 ```
 
