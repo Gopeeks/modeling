@@ -3,24 +3,109 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hello World</title>
-  <style>
-    body {
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      background: #f0f4f8;
-      font-family: sans-serif;
-    }
-    h1 {
-      font-size: 3rem;
-      color: #2d3748;
-    }
-  </style>
+  <title>Gopika — Model Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Hello, World!</h1>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-name">Gopika</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg" style="background-image: url('gopika-portfolio/PGN_5848.jpg')"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-sub reveal">Model &amp; Creative</p>
+      <h1 class="hero-name reveal">Gopika</h1>
+      <a href="#portfolio" class="hero-cta reveal">View Portfolio</a>
+    </div>
+    <div class="scroll-indicator">
+      <span></span>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-inner">
+      <div class="about-image reveal">
+        <img src="gopika-portfolio/PGN_5921.jpg" alt="Gopika">
+      </div>
+      <div class="about-text reveal">
+        <p class="section-label">About</p>
+        <h2>Presence.<br>Emotion.<br>Story.</h2>
+        <p class="about-body">
+          Every frame is a conversation. I bring authenticity, elegance, and
+          intention to every shoot — whether editorial, commercial, or artistic.
+          Based in the US, available worldwide.
+        </p>
+        <a href="#contact" class="btn-outline">Work Together</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="portfolio-header reveal">
+      <p class="section-label">Portfolio</p>
+      <h2>Selected Work</h2>
+    </div>
+    <div class="grid">
+      <div class="grid-item tall reveal"><img src="gopika-portfolio/PGN_5948.jpg" alt=""><div class="grid-overlay"></div></div>
+      <div class="grid-item reveal"><img src="gopika-portfolio/PGN_5960.jpg" alt=""><div class="grid-overlay"></div></div>
+      <div class="grid-item reveal"><img src="gopika-portfolio/PGN_6062.jpg" alt=""><div class="grid-overlay"></div></div>
+      <div class="grid-item tall reveal"><img src="gopika-portfolio/PGN_6069.jpg" alt=""><div class="grid-overlay"></div></div>
+      <div class="grid-item wide reveal"><img src="gopika-portfolio/PGN_6316.jpg" alt=""><div class="grid-overlay"></div></div>
+      <div class="grid-item reveal"><img src="gopika-portfolio/PGN_6321.jpg" alt=""><div class="grid-overlay"></div></div>
+      <div class="grid-item reveal"><img src="gopika-portfolio/PGN_6348.jpg" alt=""><div class="grid-overlay"></div></div>
+      <div class="grid-item tall reveal"><img src="gopika-portfolio/PGN_6353.jpg" alt=""><div class="grid-overlay"></div></div>
+      <div class="grid-item reveal"><img src="gopika-portfolio/PGN_6418.jpg" alt=""><div class="grid-overlay"></div></div>
+      <div class="grid-item wide reveal"><img src="gopika-portfolio/PGN_6462.jpg" alt=""><div class="grid-overlay"></div></div>
+      <div class="grid-item reveal"><img src="gopika-portfolio/1.jpeg" alt=""><div class="grid-overlay"></div></div>
+      <div class="grid-item tall reveal"><img src="gopika-portfolio/2.jpeg" alt=""><div class="grid-overlay"></div></div>
+      <div class="grid-item reveal"><img src="gopika-portfolio/3.jpeg" alt=""><div class="grid-overlay"></div></div>
+      <div class="grid-item reveal"><img src="gopika-portfolio/4.jpeg" alt=""><div class="grid-overlay"></div></div>
+      <div class="grid-item wide reveal"><img src="gopika-portfolio/5.jpeg" alt=""><div class="grid-overlay"></div></div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox">
+    <button id="lb-close">&times;</button>
+    <button id="lb-prev">&#8592;</button>
+    <button id="lb-next">&#8594;</button>
+    <img id="lb-img" src="" alt="">
+  </div>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-inner reveal">
+      <p class="section-label">Contact</p>
+      <h2>Let's Create<br>Something Beautiful</h2>
+      <p class="contact-body">Available for editorial, commercial, and artistic collaborations.</p>
+      <a href="mailto:hello@gopika.com" class="btn-primary">hello@gopika.com</a>
+      <div class="socials">
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <span>/</span>
+        <a href="#" aria-label="LinkedIn">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Gopika. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
