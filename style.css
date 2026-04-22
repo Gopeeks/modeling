@@ -387,75 +387,73 @@ footer {
 }
 
 /* ── COOKIE NOTICE ── */
-#cookie-overlay {
+#cookie-notice {
   position: fixed;
-  bottom: 1.75rem;
-  right: 1.75rem;
-  z-index: 300;
-  opacity: 1;
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 9999;
+  width: 300px;
+  background: #111;
+  border: 1px solid rgba(201,169,110,0.3);
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+  transition: opacity 0.4s, transform 0.4s;
 }
-#cookie-overlay.hidden {
+#cookie-notice.hidden {
   opacity: 0;
-  transform: translateY(0.5rem);
+  transform: translateY(8px);
   pointer-events: none;
   display: none;
 }
-#cookie-banner {
-  background: var(--dark);
-  border: 1px solid rgba(201,169,110,0.25);
-  padding: 1.75rem;
-  max-width: 300px;
-  width: 100%;
-}
-#cookie-banner h3 {
+#cookie-notice h3 {
   font-family: var(--font-serif);
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 300;
   font-style: italic;
   color: var(--white);
   margin-bottom: 0.6rem;
 }
-#cookie-banner p {
-  font-size: 0.72rem;
+#cookie-notice p {
+  font-size: 0.7rem;
   line-height: 1.8;
-  color: var(--muted);
-  margin-bottom: 1.5rem;
+  color: #888;
+  margin-bottom: 1.25rem;
 }
 .cookie-actions {
   display: flex;
-  gap: 0.6rem;
+  gap: 0.5rem;
 }
 #cookie-accept {
+  flex: 1;
   font-family: var(--font-sans);
-  font-size: 0.6rem;
-  letter-spacing: 0.2em;
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--black);
-  background: var(--gold);
+  color: #080808;
+  background: #c9a96e;
   border: none;
-  padding: 0.6rem 1.25rem;
+  padding: 0.6rem;
   cursor: pointer;
-  transition: opacity 0.3s;
+  transition: opacity 0.2s;
 }
-#cookie-accept:hover { opacity: 0.85; }
+#cookie-accept:hover { opacity: 0.8; }
 #cookie-decline {
+  flex: 1;
   font-family: var(--font-sans);
-  font-size: 0.6rem;
-  letter-spacing: 0.2em;
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: #888;
   background: transparent;
-  border: 1px solid rgba(255,255,255,0.1);
-  padding: 0.6rem 1.25rem;
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 0.6rem;
   cursor: pointer;
-  transition: color 0.3s, border-color 0.3s;
+  transition: color 0.2s, border-color 0.2s;
 }
-#cookie-decline:hover { color: var(--white); border-color: rgba(255,255,255,0.3); }
+#cookie-decline:hover { color: #f5f0eb; border-color: rgba(255,255,255,0.35); }
 
-@media (max-width: 768px) {
-  #cookie-overlay { bottom: 1rem; right: 1rem; left: 1rem; }
-  #cookie-banner { max-width: 100%; }
+@media (max-width: 500px) {
+  #cookie-notice { right: 1rem; left: 1rem; width: auto; bottom: 1rem; }
 }
 
 /* ── HAMBURGER ── */
