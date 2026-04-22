@@ -10,7 +10,7 @@ const SITE = {
   tagline: "Model & Creative",
 
   // ── Hero (full-screen image at the top)
-  heroImage: "photos/PGN_5848.jpg",
+  heroImage: "photos/PGN_6062.jpg",
 
   // ── About section
   aboutImage: "photos/PGN_5921.jpg",
