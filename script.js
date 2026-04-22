@@ -25,13 +25,14 @@ document.getElementById('footer-text').textContent   = SITE.footerText;
 const grid = document.getElementById('grid');
 const isDev = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
 
-SITE.photos.forEach(({ file, size }, index) => {
+SITE.photos.forEach(({ file, size, pos }, index) => {
   const div = document.createElement('div');
   div.className = `grid-item reveal${size === 'tall' ? ' tall' : ''}${size === 'wide' ? ' wide' : ''}`;
   const label = isDev
     ? `<div class="dev-label">#${index} · ${file.replace('photos/', '')}</div>`
     : '';
-  div.innerHTML = `<img src="${file}" alt=""><div class="grid-overlay"></div>${label}`;
+  const imgStyle = pos ? ` style="object-position:${pos}"` : '';
+  div.innerHTML = `<img src="${file}" alt=""${imgStyle}><div class="grid-overlay"></div>${label}`;
   grid.appendChild(div);
 });
 
