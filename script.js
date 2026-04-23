@@ -4,6 +4,7 @@ document.getElementById('hero-bg').style.backgroundImage = `url('${SITE.heroImag
 document.getElementById('hero-tagline').textContent = SITE.tagline;
 document.getElementById('hero-name').textContent    = SITE.name;
 document.getElementById('hero-cta').href            = '#portfolio';
+document.getElementById('hero-stats').textContent   = SITE.heroStats;
 
 document.getElementById('about-img').src            = SITE.aboutImage;
 document.getElementById('about-img').alt            = SITE.name;

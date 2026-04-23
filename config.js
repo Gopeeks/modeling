@@ -7,7 +7,8 @@ const SITE = {
 
   // ── Identity
   name:    "Gopika Nair",
-  tagline: "Model & Creative",
+  tagline: "New York City Based Model",
+  heroStats: `5'9  ·  NYC  ·  Brown Hair  ·  Brown Eyes`,
 
   // ── Hero (full-screen image at the top)
   heroImage: "photos/PGN_6062.jpg",
@@ -41,7 +42,7 @@ const SITE = {
 
   // ── Contact section
   contactHeading: ["Let's Create", "Something Beautiful"],
-  contactBody: "Available for editorial, commercial, and artistic collaborations.",
+  contactBody: "For booking and representation inquiries:",
   email:     "contact@gopikanair.co",
   instagram: "https://instagram.com/gopeeks",
   linkedin:  "https://linkedin.com/in/yourhandle",
