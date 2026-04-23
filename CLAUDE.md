@@ -89,6 +89,17 @@ Use these IDs when the user says "fix the crop on #18" etc.
 Original files live in `gopika-portfolio/` (gitignored).
 Always export to `photos/` before committing.
 
+After adding new photos to `config.js`, run face-crop.py to auto-set `pos` values:
+
+```bash
+python3 face-crop.py           # detect faces and update config.js
+python3 face-crop.py --dry-run # preview without saving
+```
+
+Then visually verify the results in dev mode — the script occasionally produces
+false positives (especially on rotated/artistic shots). Manually correct any
+wrong values using the index labels (#0, #1, …) visible on localhost.
+
 ```bash
 # Optimize a JPEG (resize to 1400px, q80)
 sips -s formatOptions 80 -Z 1400 gopika-portfolio/file.jpg --out photos/file.jpg

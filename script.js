@@ -47,9 +47,22 @@ Object.entries(SITE.stats).forEach(([key, value]) => {
 const grid = document.getElementById('grid');
 const isDev = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
 
-SITE.photos.forEach(({ file, size, pos }, index) => {
+// ── Grid size assignment — uses size from config, adjusted to prevent gaps
+//
+// Each 'tall' occupies 2 cells (1 col × 2 rows); all others occupy 1 cell.
+// Total cells must be divisible by 4 for a gap-free grid with dense flow.
+// If not, the last 'tall' is demoted to 'normal' until the count is clean.
+const gridSizes = SITE.photos.map(p => p.size || 'normal');
+let totalCells = gridSizes.reduce((s, sz) => s + (sz === 'tall' ? 2 : 1), 0);
+while (totalCells % 4 !== 0) {
+  const lastTall = gridSizes.lastIndexOf('tall');
+  if (lastTall >= 0) { gridSizes[lastTall] = 'normal'; totalCells--; }
+  else { gridSizes[gridSizes.length - 1] = 'wide'; totalCells++; break; }
+}
+
+SITE.photos.forEach(({ file, pos }, index) => {
   const div = document.createElement('div');
-  div.className = `grid-item reveal${size === 'tall' ? ' tall' : ''}${size === 'wide' ? ' wide' : ''}`;
+  div.className = `grid-item ${gridSizes[index]} reveal`;
   const label = isDev
     ? `<div class="dev-label">#${index} · ${file.replace('photos/', '')}</div>`
     : '';
