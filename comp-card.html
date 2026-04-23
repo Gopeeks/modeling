@@ -6,177 +6,248 @@
   <title>Gopika Nair — Comp Card</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-      --gold: #c9a96e;
-      --black: #080808;
-      --white: #f5f0eb;
-      --muted: #888;
-    }
-
     body {
-      background: #fff;
+      background: #e8e4df;
       font-family: 'Montserrat', sans-serif;
       font-weight: 300;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
     }
 
-    /* ── Print button (hidden on print) */
+    /* ── Print button */
     .print-btn {
       position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      background: var(--gold);
-      color: var(--black);
+      top: 1.5rem;
+      right: 1.5rem;
+      background: #111;
+      color: #f5f0eb;
       border: none;
-      padding: 0.75rem 1.75rem;
+      padding: 0.65rem 1.5rem;
       font-family: 'Montserrat', sans-serif;
-      font-size: 0.65rem;
+      font-size: 0.6rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       cursor: pointer;
-      z-index: 10;
+      z-index: 100;
     }
-    @media print { .print-btn { display: none; } }
+    .print-btn:hover { background: #333; }
 
-    /* ── Card layout: A4 portrait */
+    @media print {
+      body { background: #fff; padding: 0; gap: 0; }
+      .print-btn { display: none; }
+      .card { margin: 0; box-shadow: none; }
+    }
+
+    /* ── Card base — 5.5" × 8.5" (US comp card standard) */
     .card {
-      width: 210mm;
-      min-height: 297mm;
-      margin: 2rem auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      background: var(--black);
-      color: var(--white);
+      width: 5.5in;
+      height: 8.5in;
+      background: #fff;
       overflow: hidden;
+      position: relative;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.18);
     }
 
     @media print {
-      body { margin: 0; }
-      .card { margin: 0; width: 100%; min-height: 100vh; page-break-after: always; }
+      .card { page-break-after: always; width: 5.5in; height: 8.5in; }
     }
 
-    /* ── Left: main photo */
-    .card-photo {
-      position: relative;
-      overflow: hidden;
-    }
-    .card-photo img {
+    /* ════════════════════════════════════════
+       FRONT CARD
+    ════════════════════════════════════════ */
+
+    .front .main-photo {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 20%;
+      object-position: center 10%;
       display: block;
     }
 
-    /* ── Right: info */
-    .card-info {
+    /* Name bar at bottom of front */
+    .front .name-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #fff;
+      padding: 1.1rem 1.6rem 1rem;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    .front .name-bar h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      color: #111;
+      line-height: 1;
+    }
+
+    .front .name-bar .location {
+      font-size: 0.55rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #888;
+    }
+
+    /* ════════════════════════════════════════
+       BACK CARD
+    ════════════════════════════════════════ */
+
+    .back {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* — Photo strip across the top */
+    .back .photo-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      height: 3.85in;
+      flex-shrink: 0;
+    }
+
+    .back .photo-strip img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .back .photo-strip img:nth-child(1) { object-position: center 18%; }  /* smile headshot */
+    .back .photo-strip img:nth-child(2) { object-position: center 15%; }  /* editorial headshot */
+    .back .photo-strip img:nth-child(3) { object-position: center 8%;  }  /* full body back */
+    .back .photo-strip img:nth-child(4) { object-position: center 10%; }  /* full body side */
+
+    /* dividers between strip photos */
+    .back .photo-strip img + img { border-left: 2px solid #fff; }
+
+    /* — Lower panel: stats + contact */
+    .back .info-panel {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    /* — Name + stats (left) */
+    .back .stats-col {
+      padding: 1.1rem 1.4rem 1rem;
+      border-right: 1px solid #e0e0e0;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 3rem 2.5rem;
-      border-left: 1px solid rgba(201,169,110,0.2);
     }
 
-    .card-name {
+    .back .back-name {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 2.8rem;
+      font-size: 1.55rem;
       font-weight: 300;
+      color: #111;
+      letter-spacing: 0.04em;
       line-height: 1.1;
-      color: var(--white);
-    }
-    .card-tagline {
-      font-size: 0.6rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-top: 0.6rem;
+      margin-bottom: 0.9rem;
     }
 
-    /* Stats */
-    .card-stats {
+    .back .stats-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.5rem 1rem;
-      margin: 2.5rem 0;
-    }
-    .card-stat-label {
-      font-size: 0.5rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--gold);
-      display: block;
-      margin-bottom: 0.2rem;
-    }
-    .card-stat-value {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem;
-      font-weight: 300;
-      color: var(--white);
+      gap: 0.55rem 0.8rem;
     }
 
-    /* Credits */
-    .card-credits-title {
-      font-size: 0.5rem;
-      letter-spacing: 0.3em;
+    .stat-label {
+      font-size: 0.44rem;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1rem;
+      color: #aaa;
+      display: block;
+      margin-bottom: 0.1rem;
     }
-    .card-credit {
+
+    .stat-value {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 0.95rem;
-      font-style: italic;
-      color: var(--white);
-      margin-bottom: 0.3rem;
+      font-size: 1rem;
+      font-weight: 400;
+      color: #111;
     }
-    .card-credit-detail {
+
+    /* — Contact (right) */
+    .back .contact-col {
+      padding: 1.1rem 1.4rem 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .section-label {
+      font-size: 0.44rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #aaa;
+      display: block;
+      margin-bottom: 0.7rem;
+    }
+
+    .contact-link {
+      display: block;
       font-size: 0.6rem;
-      color: var(--muted);
-      margin-bottom: 0.9rem;
-      letter-spacing: 0.05em;
-    }
-
-    /* Contact */
-    .card-contact {
-      border-top: 1px solid rgba(201,169,110,0.2);
-      padding-top: 1.5rem;
-    }
-    .card-contact-label {
-      font-size: 0.5rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.75rem;
-    }
-    .card-contact a {
-      display: block;
-      font-size: 0.68rem;
-      color: var(--white);
+      color: #111;
       text-decoration: none;
+      letter-spacing: 0.04em;
       margin-bottom: 0.3rem;
+      line-height: 1.6;
+    }
+
+    .back .credit-block {
+      margin-top: auto;
+    }
+
+    .credit-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.85rem;
+      font-style: italic;
+      color: #333;
+      display: block;
+    }
+    .credit-detail {
+      font-size: 0.5rem;
+      color: #aaa;
       letter-spacing: 0.05em;
     }
 
-    /* ── Secondary photos strip (bottom row) */
-    .card-photos {
+    /* — Back footer */
+    .back .back-footer {
       grid-column: 1 / -1;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      height: 220px;
-      border-top: 1px solid rgba(201,169,110,0.15);
+      border-top: 1px solid #e0e0e0;
+      padding: 0.5rem 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-    .card-photos img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 20%;
-      display: block;
+
+    .back .back-footer .site-url {
+      font-size: 0.5rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #aaa;
+      text-decoration: none;
     }
-    .card-photos img:not(:last-child) {
-      border-right: 1px solid rgba(201,169,110,0.15);
+
+    .back .back-footer .tag {
+      font-size: 0.5rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #ccc;
     }
   </style>
 </head>
@@ -184,74 +255,90 @@
 
   <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
 
-  <div class="card">
+  <!-- ════ FRONT ════ -->
+  <div class="card front">
+    <img class="main-photo" src="photos/comp/IMG_3469.jpg" alt="Gopika Nair">
+    <div class="name-bar">
+      <h1>Gopika Nair</h1>
+      <span class="location">New York City</span>
+    </div>
+  </div>
 
-    <!-- Main photo -->
-    <div class="card-photo">
-      <img src="photos/PGN_6062.jpg" alt="Gopika Nair">
+  <!-- ════ BACK ════ -->
+  <div class="card back">
+
+    <!-- Four photos across top -->
+    <div class="photo-strip">
+      <img src="photos/comp/IMG_3478.jpg" alt="">
+      <img src="photos/comp/IMG_3474.jpg" alt="">
+      <img src="photos/comp/IMG_3476.jpg" alt="">
+      <img src="photos/comp/IMG_3468.jpg" alt="">
     </div>
 
     <!-- Info panel -->
-    <div class="card-info">
-      <div>
-        <h1 class="card-name">Gopika<br>Nair</h1>
-        <p class="card-tagline">New York City</p>
+    <div class="info-panel">
+
+      <!-- Stats -->
+      <div class="stats-col">
+        <div>
+          <p class="back-name">Gopika<br>Nair</p>
+          <div class="stats-grid">
+            <div>
+              <span class="stat-label">Height</span>
+              <span class="stat-value">5'9"</span>
+            </div>
+            <div>
+              <span class="stat-label">Bust</span>
+              <span class="stat-value">32"</span>
+            </div>
+            <div>
+              <span class="stat-label">Waist</span>
+              <span class="stat-value">27"</span>
+            </div>
+            <div>
+              <span class="stat-label">Hips</span>
+              <span class="stat-value">35"</span>
+            </div>
+            <div>
+              <span class="stat-label">Dress</span>
+              <span class="stat-value">S / 4</span>
+            </div>
+            <div>
+              <span class="stat-label">Shoe</span>
+              <span class="stat-value">8</span>
+            </div>
+            <div>
+              <span class="stat-label">Hair</span>
+              <span class="stat-value">Brown</span>
+            </div>
+            <div>
+              <span class="stat-label">Eyes</span>
+              <span class="stat-value">Brown</span>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="card-stats">
+      <!-- Contact + Credits -->
+      <div class="contact-col">
         <div>
-          <span class="card-stat-label">Height</span>
-          <span class="card-stat-value">5'9"</span>
+          <span class="section-label">Contact</span>
+          <a class="contact-link" href="mailto:contact@gopikanair.co">contact@gopikanair.co</a>
+          <a class="contact-link" href="https://instagram.com/gopeeks">@gopeeks</a>
         </div>
-        <div>
-          <span class="card-stat-label">Bust</span>
-          <span class="card-stat-value">32"</span>
-        </div>
-        <div>
-          <span class="card-stat-label">Waist</span>
-          <span class="card-stat-value">27"</span>
-        </div>
-        <div>
-          <span class="card-stat-label">Hips</span>
-          <span class="card-stat-value">35"</span>
-        </div>
-        <div>
-          <span class="card-stat-label">Dress</span>
-          <span class="card-stat-value">S</span>
-        </div>
-        <div>
-          <span class="card-stat-label">Shoe</span>
-          <span class="card-stat-value">8</span>
-        </div>
-        <div>
-          <span class="card-stat-label">Hair</span>
-          <span class="card-stat-value">Brown</span>
-        </div>
-        <div>
-          <span class="card-stat-label">Eyes</span>
-          <span class="card-stat-value">Brown</span>
+        <div class="credit-block">
+          <span class="section-label">Selected Credits</span>
+          <span class="credit-name">Bumble</span>
+          <span class="credit-detail">NYC Subway &amp; Digital Campaign</span>
         </div>
       </div>
 
-      <div>
-        <p class="card-credits-title">Credits</p>
-        <p class="card-credit">Bumble (Acquired Brand Campaign)</p>
-        <p class="card-credit-detail">NYC subway & digital ads</p>
-      </div>
-
-      <div class="card-contact">
-        <p class="card-contact-label">Contact</p>
-        <a href="mailto:contact@gopikanair.co">contact@gopikanair.co</a>
-        <a href="https://instagram.com/gopeeks">instagram.com/gopeeks</a>
-        <a href="https://gopeeks.github.io/modeling/">gopeeks.github.io/modeling</a>
-      </div>
     </div>
 
-    <!-- Secondary photos strip -->
-    <div class="card-photos">
-      <img src="photos/PGN_5948.jpg" alt="">
-      <img src="photos/IMG_9255.jpg" alt="">
-      <img src="photos/PGN_6353.jpg" alt="">
+    <!-- Footer -->
+    <div class="back-footer" style="grid-column: 1 / -1; border-top: 1px solid #e0e0e0; padding: 0.5rem 1.4rem; display: flex; align-items: center; justify-content: space-between;">
+      <a class="site-url" href="https://gopikanair.co">gopikanair.co</a>
+      <span class="tag">Model Portfolio</span>
     </div>
 
   </div>
