@@ -53,6 +53,8 @@ const SITE = {
   // size: "normal" | "tall" (2x height) | "wide" (2x width)
   // pos: CSS object-position to control crop
   photos: [
+    { file: "photos/PGN_5848.jpg",   size: "tall",   pos: "center 12%" },
+    { file: "photos/PGN_5921.jpg",   size: "tall",   pos: "center 8%" },
     { file: "photos/PGN_5948.jpg",   size: "tall",   pos: "center 5%" },
     { file: "photos/PGN_5960.jpg",   size: "normal", pos: "center 6%" },
     { file: "photos/PGN_6062.jpg",   size: "normal", pos: "57% 8%" },
@@ -67,8 +69,6 @@ const SITE = {
     { file: "photos/3.jpeg",         size: "normal", pos: "41% 10%" },
     { file: "photos/4.jpeg",         size: "normal", pos: "center 10%" },
     { file: "photos/5.jpeg",         size: "normal", pos: "42% 27%" },
-    { file: "photos/IMG_9139.jpg",   size: "tall",   pos: "56% 10%" },
-    { file: "photos/IMG_9145.jpg",   size: "normal", pos: "77% 60%" },
     { file: "photos/IMG_9151.jpg",   size: "normal", pos: "78% 45%" },
     { file: "photos/IMG_9179.jpg",   size: "normal", pos: "center 12%" },
     { file: "photos/IMG_9214.jpg",   size: "tall",   pos: "center 12%" },
@@ -76,8 +76,13 @@ const SITE = {
     { file: "photos/IMG_9254.jpg",   size: "normal", pos: "center 14%" },
     { file: "photos/IMG_9255.jpg",   size: "tall",   pos: "center 12%" },
     { file: "photos/IMG_9263.jpg",   size: "normal", pos: "center 21%" },
-    { file: "photos/IMG_9276.jpg",   size: "normal", pos: "center 18%" },
     { file: "photos/IMG_9279.jpg",   size: "normal", pos: "center 14%" },
-    { file: "photos/IMG_9282.jpg",   size: "normal", pos: "center 9%" },
+    { file: "photos/IMG_3459.JPG",   size: "tall",   pos: "center 8%" },
+    { file: "photos/IMG_3460.JPG",   size: "tall",   pos: "center 10%" },
+    { file: "photos/IMG_3442.JPG",   size: "normal", pos: "center 12%" },
+    { file: "photos/IMG_3450.JPG",   size: "normal", pos: "center 15%" },
+    { file: "photos/IMG_3457.JPG",   size: "normal", pos: "center 12%" },
+    { file: "photos/IMG_3461.JPG",   size: "normal", pos: "center 10%" },
+    { file: "photos/IMG_3462.JPG",   size: "normal", pos: "center 10%" },
   ],
 };
