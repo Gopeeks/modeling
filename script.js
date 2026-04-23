@@ -31,18 +31,6 @@ SITE.experience.forEach(({ credit, detail }) => {
     </div>`;
 });
 
-// ── Build stats section
-const statsInner = document.getElementById('stats-inner');
-const statLabels = { height: 'Height', bust: 'Bust', waist: 'Waist', hips: 'Hips', dress: 'Dress', shoe: 'Shoe', hair: 'Hair', eyes: 'Eyes' };
-Object.entries(SITE.stats).forEach(([key, value]) => {
-  if (!value) return;
-  statsInner.innerHTML += `
-    <div class="stat-item">
-      <span class="stat-label">${statLabels[key]}</span>
-      <span class="stat-value">${value}</span>
-    </div>`;
-});
-
 // ── Build portfolio grid from config
 const grid = document.getElementById('grid');
 const isDev = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
