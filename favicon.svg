@@ -1,8 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      @font-face {
+        font-family: "Crustaceans";
+        src: url("data:font/woff2;base64,d09GMk9UVE8AAAQ0AAwAAAAABvAAAAPnAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAADYR1GhYbchwqBmAAPAE2AiQDDAQGBYNIByAbFgYALgbsxuVQHEjZ01/MSssnc/2/lURAkZh4+H6N/bn7UGseoRKqeXWdoZo1aDSIkDVFQqME/7L/l1f9StLzFkAtiYYGaXgg6LQncTRwzjVGWXKabMATGOB4NBsnRoINPAqoH1M3f9XWF+3igAMrwrk0e5AwnjoWdVHlvbrb1Kn8FA7gpC0YDXDE5u7GFGyMYdgrUArcbRt73qv1+lwLNuPpGBqX9chHK903UBmgQOu7pAqZnMnmMmnZEyHfvbT85WTfYy5f6S17vhvB3yZ4rVeBvy3o2oivVeRdrMITdu///vfYhX/iiOS/a51HCiPQgpsnQTmTncIhTa+jQVbxJhjlUUkvLChfNZLug/Ln6JQrov3Y3vn03ttdksEuFl7R23RtdQ9sykxJG+JYUH1YFj4AnlHjGgD0e4DMAKFExf6vzaqhr/uz4649cba5qYkhv6axoSaNGccyuW/AO2Nj2klcniZpKvtPFyvLxsD09SZsTrQ7Ex2iawIcZxN3RbgoJPxzfON9Y8LzgwuCCyMbw66Qu6zacs+ixo2fYGLG5H8QcfVmeaT49rt2syaUfzpp1ke95QFzS3GxV9hbOlu6WHHuPr/PspjlPKlQNiR9RQ9t6J5kX5iFF/3Zv664DQFXjy2zsrWEbb5JfkneyW7BLqE2kKqJUnm+CX12W6ZrZgwXmRu5JbkmOSXN8pBlmlls2DfRGCnNLWxi3vm6OZZvdHI0vaK+pnfT2jSH5+qelRdekzJ7+XV9f3DiVdcnSi/Fs6wUrgb+Gg8Ld0sfx2yX8aGwDQthRllazFpgcPdXri+jxiZmsuLwOeXloU4Bzk7z5mW7u86b/6+ywSsHARUABISA8HhQ5qCriO7eu09hwfaCnIY1KPCcGm33IsTWipSGBVIZCCJTCLMge4ENmllhnY71DAjKj6jC7XZCq0ZqS0HmjlyhMGSqPfESGNokZh0ODfLDQ8cnHj+BUmvoRMxgONlnv7iBWM8KgTYkkAHEGpAQTNkJikoI4UXKSpHX/v3cU8TcNcDtjnz1h4VnP0oS+Qnee0Nf3Gev/zhT8d8LFqQ2JASwUrL6RTqYz/1vkoQQ9poUP0Hs5n9iPH9jHCSg2GskVDAbwCpoE8hRPIKwgD9BkoslKCeDJxjWhGVrnbskTpvDDjrsCIxFA7uLS04uAenjNcS4sCfkFDiERLArRPbDLtGlC5MS4hOQk/UkXDI+dlfi4rhCSkFGjomNi4nWtZ9YkmlMcordsauuueeBx7j4FHQxST33aMsyQGjYIfsg/4czHnrlsSfOxJpCOrn70D9zHSrPuO6uE31L8ThrvjGJieWBOgEAAAA=") format("woff2");
+      }
+    </style>
+  </defs>
   <circle cx="16" cy="16" r="16" fill="#111111"/>
-  <text x="16" y="22"
-        font-family="'Apple Chancery', 'Zapf Chancery', 'URW Chancery L', cursive"
-        font-size="17"
+  <text x="16" y="23"
+        font-family="Crustaceans, cursive"
+        font-size="20"
         fill="#f5f0eb"
         text-anchor="middle">gn</text>
 </svg>
