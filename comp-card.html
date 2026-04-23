@@ -105,7 +105,7 @@
     .secondary-photos {
       flex: 1;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
       gap: 5px;
       margin: 0.4in 0 0.36in;
       min-height: 0;
@@ -119,10 +119,12 @@
       display: block;
     }
 
-    /* smiling headshot — face in upper portion */
-    .secondary-photos img:nth-child(1) { object-position: center 16%; }
-    /* editorial headshot — slight angle, face upper */
-    .secondary-photos img:nth-child(2) { object-position: 55% 14%; }
+    /* IMG_3483 — neutral front, zoom to face */
+    .secondary-photos img:nth-child(1) { object-position: center 18%; }
+    /* IMG_3477 — angled, zoom to face */
+    .secondary-photos img:nth-child(2) { object-position: 45% 15%; }
+    /* IMG_3470 — closer 3/4, already tighter crop */
+    .secondary-photos img:nth-child(3) { object-position: center 17%; }
 
     /* — Stats */
     .stats-block {
@@ -209,7 +211,7 @@
 
     <!-- Left: hero full-body photo -->
     <div class="col-photo">
-      <img src="photos/comp/IMG_3469.jpg" alt="Gopika Nair">
+      <img src="photos/comp/IMG_3475.jpg" alt="Gopika Nair">
     </div>
 
     <!-- Right: info panel -->
@@ -221,10 +223,11 @@
         <p class="location">New York City</p>
       </div>
 
-      <!-- Two secondary headshots -->
+      <!-- Three secondary photos -->
       <div class="secondary-photos">
-        <img src="photos/comp/IMG_3478.jpg" alt="Gopika Nair — commercial">
-        <img src="photos/comp/IMG_3474.jpg" alt="Gopika Nair — editorial">
+        <img src="photos/comp/IMG_3483.jpg" alt="Gopika Nair">
+        <img src="photos/comp/IMG_3477.jpg" alt="Gopika Nair">
+        <img src="photos/comp/IMG_3470.jpg" alt="Gopika Nair">
       </div>
 
       <!-- Stats -->
