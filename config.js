@@ -84,5 +84,10 @@ const SITE = {
     { file: "photos/IMG_3457.JPG",   size: "normal", pos: "center 12%" },
     { file: "photos/IMG_3461.JPG",   size: "normal", pos: "center 10%" },
     { file: "photos/IMG_3462.JPG",   size: "normal", pos: "center 10%" },
+    { file: "photos/IMG_6937.JPG",   size: "tall",   pos: "center 12%" },
+    { file: "photos/IMG_6940.JPG",   size: "tall",   pos: "center 10%" },
+    { file: "photos/IMG_6950.JPG",   size: "tall",   pos: "center 15%" },
+    { file: "photos/IMG_6964.JPG",   size: "tall",   pos: "center 12%" },
+    { file: "photos/IMG_5152.jpg",   size: "normal", pos: "center 18%" },
   ],
 };
