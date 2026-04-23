@@ -3,7 +3,6 @@ document.getElementById('nav-name').textContent     = SITE.name;
 document.getElementById('hero-bg').style.backgroundImage = `url('${SITE.heroImage}')`;
 document.getElementById('hero-tagline').textContent = SITE.tagline;
 document.getElementById('hero-name').textContent    = SITE.name;
-document.getElementById('hero-cta').href            = '#portfolio';
 
 document.getElementById('about-img').src            = SITE.aboutImage;
 document.getElementById('about-img').alt            = SITE.name;
@@ -61,8 +60,11 @@ SITE.photos.forEach(({ file, pos }, index) => {
 
 // ── Nav scroll effect
 const nav = document.getElementById('nav');
+const navName = document.getElementById('nav-name');
+const hero = document.getElementById('hero');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 60);
+  navName.classList.toggle('visible', window.scrollY > hero.offsetHeight * 0.85);
 });
 
 // ── Scroll reveal

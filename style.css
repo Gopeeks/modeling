@@ -45,7 +45,10 @@ body {
   letter-spacing: 0.15em;
   color: var(--white);
   text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
+.nav-name.visible { opacity: 1; }
 .nav-links {
   list-style: none;
   display: flex;
