@@ -3,7 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title id="page-title">Portfolio</title>
+  <title>Gopika Nair — Model Portfolio</title>
+  <meta name="description" content="Gopika Nair is a model based in New York City. Available for editorial, commercial, and creative projects.">
+  <meta property="og:title" content="Gopika Nair — Model Portfolio">
+  <meta property="og:description" content="New York City based model. Available for editorial, commercial, and creative projects.">
+  <meta property="og:image" content="https://gopeeks.github.io/modeling/photos/PGN_6062.jpg">
+  <meta property="og:url" content="https://gopeeks.github.io/modeling/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://gopeeks.github.io/modeling/photos/PGN_6062.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
@@ -27,6 +35,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#portfolio">Portfolio</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li><a href="comp-card.html" target="_blank">Comp Card</a></li>
     </ul>
     <button class="nav-toggle" aria-label="Open menu">
       <span></span><span></span><span></span>
@@ -38,6 +47,7 @@
     <a href="#about">About</a>
     <a href="#portfolio">Portfolio</a>
     <a href="#contact">Contact</a>
+    <a href="comp-card.html" target="_blank">Comp Card</a>
   </div>
 
   <!-- HERO -->
@@ -50,6 +60,14 @@
       <a class="hero-cta reveal" id="hero-cta" href="#portfolio">View Portfolio</a>
     </div>
     <div class="scroll-indicator"><span></span></div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="experience-inner reveal">
+      <p class="section-label">Credits</p>
+      <div class="experience-list" id="experience-list"></div>
+    </div>
   </section>
 
   <!-- ABOUT -->
@@ -74,6 +92,7 @@
       <h2>Selected Work</h2>
     </div>
     <div class="grid" id="grid"></div>
+    <div class="stats-inner" id="stats-inner"></div>
   </section>
 
   <!-- LIGHTBOX -->
@@ -90,11 +109,9 @@
       <p class="section-label">Contact</p>
       <h2 id="contact-heading"></h2>
       <p class="contact-body" id="contact-body"></p>
-      <a class="btn-primary" id="contact-email" href="#"></a>
-      <div class="socials">
-        <a id="social-instagram" href="#">Instagram</a>
-        <span>/</span>
-        <a id="social-linkedin" href="#">LinkedIn</a>
+      <div class="contact-buttons">
+        <a class="contact-link" id="contact-email" href="#"></a>
+        <a class="contact-link" id="social-instagram" href="#">Instagram</a>
       </div>
     </div>
   </section>

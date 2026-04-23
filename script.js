@@ -1,5 +1,4 @@
 // ── Apply config to page
-document.getElementById('page-title').textContent  = `${SITE.name} — Portfolio`;
 document.getElementById('nav-name').textContent     = SITE.name;
 document.getElementById('hero-bg').style.backgroundImage = `url('${SITE.heroImage}')`;
 document.getElementById('hero-tagline').textContent = SITE.tagline;
@@ -9,17 +8,40 @@ document.getElementById('hero-cta').href            = '#portfolio';
 document.getElementById('about-img').src            = SITE.aboutImage;
 document.getElementById('about-img').alt            = SITE.name;
 document.getElementById('about-heading').innerHTML  = SITE.aboutHeading.join('<br>');
-document.getElementById('about-body').textContent   = SITE.aboutBody;
+document.getElementById('about-body').textContent = SITE.aboutBody;
 document.getElementById('about-cta').textContent    = SITE.aboutCtaText;
 document.getElementById('about-cta').href           = SITE.aboutCtaLink;
 
 document.getElementById('contact-heading').innerHTML = SITE.contactHeading.join('<br>');
 document.getElementById('contact-body').textContent  = SITE.contactBody;
-document.getElementById('contact-email').textContent = SITE.email;
-document.getElementById('contact-email').href        = `mailto:${SITE.email}`;
-document.getElementById('social-instagram').href     = SITE.instagram;
-document.getElementById('social-linkedin').href      = SITE.linkedin;
+const emailEl = document.getElementById('contact-email');
+emailEl.textContent = SITE.email;
+emailEl.href = `mailto:${SITE.email}`;
+document.getElementById('social-instagram').textContent = 'Instagram';
+document.getElementById('social-instagram').href       = SITE.instagram;
 document.getElementById('footer-text').textContent   = SITE.footerText;
+
+// ── Build experience section
+const expList = document.getElementById('experience-list');
+SITE.experience.forEach(({ credit, detail }) => {
+  expList.innerHTML += `
+    <div class="experience-item">
+      <span class="experience-credit">${credit}</span>
+      <span class="experience-detail">${detail}</span>
+    </div>`;
+});
+
+// ── Build stats section
+const statsInner = document.getElementById('stats-inner');
+const statLabels = { height: 'Height', bust: 'Bust', waist: 'Waist', hips: 'Hips', dress: 'Dress', shoe: 'Shoe', hair: 'Hair', eyes: 'Eyes' };
+Object.entries(SITE.stats).forEach(([key, value]) => {
+  if (!value) return;
+  statsInner.innerHTML += `
+    <div class="stat-item">
+      <span class="stat-label">${statLabels[key]}</span>
+      <span class="stat-value">${value}</span>
+    </div>`;
+});
 
 // ── Build portfolio grid from config
 const grid = document.getElementById('grid');
@@ -32,7 +54,7 @@ SITE.photos.forEach(({ file, size, pos }, index) => {
     ? `<div class="dev-label">#${index} · ${file.replace('photos/', '')}</div>`
     : '';
   const imgStyle = pos ? ` style="object-position:${pos}"` : '';
-  div.innerHTML = `<img src="${file}" alt=""${imgStyle}><div class="grid-overlay"></div>${label}`;
+  div.innerHTML = `<img src="${file}" alt="" loading="lazy"${imgStyle}><div class="grid-overlay"></div>${label}`;
   grid.appendChild(div);
 });
 
