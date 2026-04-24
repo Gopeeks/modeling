@@ -10,7 +10,7 @@ const SITE = {
   tagline: "Model & Creative • New York City",
 
   // ── Hero (full-screen image at the top)
-  heroImage: "High-res photos/PGN_6062.jpg",
+  heroImage: "photos/PGN_6062.jpg",
 
   // ── Experience
   experience: [
