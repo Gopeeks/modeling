@@ -482,9 +482,15 @@ body {
 #lightbox.active { display: flex; }
 #lb-img {
   max-width: 90vw;
-  max-height: 90vh;
+  max-height: calc(90vh - 90px); /* leave room for thumbnail strip */
   object-fit: contain;
+  cursor: zoom-in;
+  will-change: transform;
+  user-select: none;
+  -webkit-user-drag: none;
 }
+#lb-img.lb-zoomed { cursor: grab; }
+#lb-img.lb-panning { cursor: grabbing !important; }
 #lb-close, #lb-prev, #lb-next {
   position: fixed;
   background: transparent;
@@ -526,7 +532,8 @@ body {
 #lb-thumbs img:hover { opacity: 0.7; }
 #lb-thumbs img.lb-thumb-active {
   opacity: 1;
-  outline: 1.5px solid rgba(255,255,255,0.75);
+  outline: 2px solid #fff;
+  outline-offset: 1px;
 }
 
 /* ── CONTACT ── */
