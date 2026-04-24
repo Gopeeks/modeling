@@ -84,19 +84,19 @@ const SITE = {
     { file: "photos/IMG_9254.jpg",   size: "normal", pos: "center 14%" },
     { file: "photos/IMG_9263.jpg",   size: "normal", pos: "center 21%" },
     { file: "photos/IMG_9279.jpg",   size: "normal", pos: "center 14%" },
-    { file: "photos/IMG_3459.JPG",   size: "tall",   pos: "center 8%" },
-    { file: "photos/IMG_3460.JPG",   size: "tall",   pos: "center 10%" },
-    { file: "photos/IMG_3442.JPG",   size: "normal", pos: "center 12%" },
-    { file: "photos/IMG_3450.JPG",   size: "normal", pos: "center 15%" },
-    { file: "photos/IMG_3457.JPG",   size: "normal", pos: "center 12%" },
-    { file: "photos/IMG_3461.JPG",   size: "normal", pos: "center 10%" },
-    { file: "photos/IMG_3462.JPG",   size: "normal", pos: "center 10%" },
-    { file: "photos/IMG_6937.JPG",   size: "tall",   pos: "center 12%" },  // pinned tall
-    { file: "photos/IMG_6940.JPG",   size: "tall",   pos: "center 10%" },
-    { file: "photos/IMG_6964.JPG",   size: "normal", pos: "center 12%" },
+    { file: "photos/IMG_3459.JPG",     size: "tall",   pos: "center 8%" },
+    { file: "photos/IMG_3460.JPG",     size: "tall",   pos: "center 10%" },
+    { file: "photos/IMG_6937.JPG",     size: "tall",   pos: "center 12%" },  // pinned tall
     { file: "photos/Gopika-3833.jpg",  size: "tall",   pos: "center 22%" },  // pinned tall
-    { file: "photos/Gopika-3925.jpeg", size: "normal", pos: "center 22%" },
     { file: "photos/IMG_3632.JPG",     size: "tall",   pos: "center 12%" },  // pinned tall
+    { file: "photos/IMG_6940.JPG",     size: "tall",   pos: "center 10%" },
+    { file: "photos/IMG_3442.JPG",     size: "normal", pos: "center 12%" },
+    { file: "photos/IMG_3450.JPG",     size: "normal", pos: "center 15%" },
+    { file: "photos/IMG_3457.JPG",     size: "normal", pos: "center 12%" },
+    { file: "photos/IMG_3461.JPG",     size: "normal", pos: "center 10%" },
+    { file: "photos/IMG_3462.JPG",     size: "normal", pos: "center 10%" },
+    { file: "photos/IMG_6964.JPG",     size: "normal", pos: "center 12%" },
+    { file: "photos/Gopika-3925.jpeg", size: "normal", pos: "center 22%" },
     { file: "photos/IMG_3703.JPG",     size: "normal", pos: "center 12%" },
   ],
 };
