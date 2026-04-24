@@ -60,10 +60,10 @@ window.GRID_LAYOUT = {
     "24": "normal",
     "25": "horizontal",
     "26": "tall",
-    "27": "normal",
-    "28": "normal",
-    "29": "tall",
-    "30": "tall"
+    "27": "tall",
+    "28": "tall",
+    "29": "normal",
+    "30": "normal"
   },
   "photoPositions": {
     "0": "52.7% 0.0%",
