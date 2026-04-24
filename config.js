@@ -7,10 +7,10 @@ const SITE = {
 
   // ── Identity
   name:    "Gopika Nair",
-  tagline: "Model & Creative",
+  tagline: "Model & Creative • New York City",
 
   // ── Hero (full-screen image at the top)
-  heroImage: "photos/PGN_6062.jpg",
+  heroImage: "High-res photos/PGN_6062.jpg",
 
   // ── Experience
   experience: [
@@ -25,6 +25,34 @@ const SITE = {
     {
       credit: "Revare",
       detail: "Brand imagery",
+    },
+  ],
+
+  photographerCredits: [
+    {
+      handle: "@chris_dobey",
+      url: "https://instagram.com/chris_dobey",
+      photoIndices: [0, 1, 2, 3, 4, 5, 6, 7],
+    },
+    {
+      handle: "@it_me___jp",
+      url: "https://instagram.com/it_me___jp",
+      photoIndices: [8, 9, 10, 11, 20, 21, 26, 27, 28, 29, 30],
+    },
+    {
+      handle: "@photosbykundan",
+      url: "https://instagram.com/photosbykundan",
+      photoIndices: [13, 14, 15, 18, 19],
+    },
+    {
+      handle: "@studiomonae",
+      url: "https://instagram.com/studiomonae",
+      photoIndices: [22, 25, 31],
+    },
+    {
+      handle: "@bobbyzphotographer",
+      url: "https://instagram.com/bobbyzphotographer",
+      photoIndices: [24, 32, 23, 33],
     },
   ],
 
@@ -77,21 +105,20 @@ const SITE = {
     { file: "photos/3.jpeg",         size: "normal", pos: "41% 10%" },
     { file: "photos/4.jpeg",         size: "tall",   pos: "center 10%" },  // pinned tall
     { file: "photos/5.jpeg",         size: "normal", pos: "42% 27%" },
-    { file: "photos/IMG_9151.jpg",   size: "normal", pos: "78% 45%" },
+    { file: "photos/IMG_9151.jpg",   size: "tall",   pos: "78% 45%" },
     { file: "photos/IMG_9179.jpg",   size: "normal", pos: "center 12%" },
     { file: "photos/IMG_9214.jpg",   size: "tall",   pos: "center 12%" },
     { file: "photos/IMG_9249.jpg",   size: "normal", pos: "center 11%" },
     { file: "photos/IMG_9254.jpg",   size: "normal", pos: "center 14%" },
-    { file: "photos/IMG_9263.jpg",   size: "normal", pos: "center 21%" },
+    { file: "photos/IMG_9263.jpg",   size: "tall",   pos: "center 21%" },
     { file: "photos/IMG_9279.jpg",   size: "normal", pos: "center 14%" },
-    { file: "photos/IMG_3459.JPG",     size: "tall",   pos: "center 8%" },
+    { file: "photos/IMG_3459.JPG",     size: "normal", pos: "center 8%" },
     { file: "photos/IMG_3460.JPG",     size: "tall",   pos: "center 10%" },
-    { file: "photos/IMG_6937.JPG",     size: "tall",   pos: "center 12%" },  // pinned tall
+    { file: "photos/IMG_6937.JPG",     size: "normal", pos: "center 12%" },
     { file: "photos/Gopika-3833.jpg",  size: "tall",   pos: "center 22%" },  // pinned tall
     { file: "photos/IMG_3632.JPG",     size: "tall",   pos: "center 12%" },  // pinned tall
     { file: "photos/IMG_6940.JPG",     size: "tall",   pos: "center 10%" },
     { file: "photos/IMG_3442.JPG",     size: "normal", pos: "center 12%" },
-    { file: "photos/IMG_3450.JPG",     size: "normal", pos: "center 15%" },
     { file: "photos/IMG_3457.JPG",     size: "normal", pos: "center 12%" },
     { file: "photos/IMG_3461.JPG",     size: "normal", pos: "center 10%" },
     { file: "photos/IMG_3462.JPG",     size: "normal", pos: "center 10%" },

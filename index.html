@@ -16,15 +16,58 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=20260424-17">
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2TZHJKDNQW"></script>
   <script>
+    window.GA_MEASUREMENT_ID = 'G-2TZHJKDNQW';
+    window.analyticsInitialized = false;
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+
+    function disableAnalytics() {
+      const id = window.GA_MEASUREMENT_ID;
+      window[`ga-disable-${id}`] = true;
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500,
+      });
+      gtag('consent', 'update', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+      });
+    }
+
+    function enableAnalytics() {
+      const id = window.GA_MEASUREMENT_ID;
+      window[`ga-disable-${id}`] = false;
+      gtag('consent', 'update', {
+        analytics_storage: 'granted',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+      });
+      if (!window.analyticsInitialized) {
+        gtag('config', id);
+        window.analyticsInitialized = true;
+      }
+    }
+
     gtag('js', new Date());
-    gtag('config', 'G-2TZHJKDNQW');
+
+    try {
+      const cookieChoice = localStorage.getItem('cookieChoice');
+      if (cookieChoice === 'accepted') enableAnalytics();
+      else disableAnalytics();
+    } catch (error) {
+      disableAnalytics();
+    }
   </script>
 </head>
 <body>
@@ -33,7 +76,6 @@
   <nav id="nav">
     <div class="nav-name" id="nav-name"></div>
     <ul class="nav-links">
-      <li><a href="#about">About</a></li>
       <li><a href="#portfolio">Portfolio</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="comp-card.html" target="_blank">Comp Card</a></li>
@@ -45,7 +87,6 @@
 
   <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#about">About</a>
     <a href="#portfolio">Portfolio</a>
     <a href="#contact">Contact</a>
     <a href="comp-card.html" target="_blank">Comp Card</a>
@@ -60,21 +101,6 @@
       <h1 class="hero-name reveal" id="hero-name"></h1>
     </div>
     <div class="scroll-indicator"><span></span></div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="about-inner">
-      <div class="about-image reveal">
-        <img id="about-img" src="" alt="">
-      </div>
-      <div class="about-text reveal">
-        <p class="section-label">About</p>
-        <h2 id="about-heading"></h2>
-        <p class="about-body" id="about-body"></p>
-        <a class="btn-outline" id="about-cta" href="#contact"></a>
-      </div>
-    </div>
   </section>
 
   <!-- PORTFOLIO -->
@@ -95,6 +121,10 @@
     <div class="experience-inner reveal">
       <p class="section-label">Credits</p>
       <div class="experience-list" id="experience-list"></div>
+      <div class="photographer-credits" id="photographer-credits">
+        <p class="photographer-label">Photography</p>
+        <div class="photographer-list" id="photographer-links"></div>
+      </div>
     </div>
   </section>
 
@@ -121,12 +151,13 @@
     <h3>We use cookies</h3>
     <p>This site uses Google Analytics to understand how visitors engage with the portfolio. No personal data is stored or shared.</p>
     <div class="cookie-actions">
-      <button id="cookie-accept">Accept</button>
-      <button id="cookie-decline">Decline</button>
+      <button id="cookie-accept" type="button" onclick="try{localStorage.setItem('cookieChoice','accepted')}catch(e){};this.closest('#cookie-notice').classList.add('hidden');if(window.setCookieChoice)window.setCookieChoice('accepted');">Accept</button>
+      <button id="cookie-decline" type="button" onclick="try{localStorage.setItem('cookieChoice','declined')}catch(e){};this.closest('#cookie-notice').classList.add('hidden');if(window.setCookieChoice)window.setCookieChoice('declined');">Decline</button>
     </div>
   </div>
 
-  <script src="config.js"></script>
-  <script src="script.js"></script>
+  <script src="config.js?v=20260424-17"></script>
+  <script src="grid-layout.js?v=20260424-17"></script>
+  <script src="script.js?v=20260424-17"></script>
 </body>
 </html>
