@@ -43,22 +43,6 @@ const DEV_GRID_STATE_KEY = 'devGridState';
 const DEV_CROP_MODE_KEY = 'devCropModeEnabled';
 const DEV_GRID_SAVE_URL = '/save-grid-layout';
 const PHOTO_GROUPS = SITE.photographerCredits.map(({ handle, photoIndices }) => ({ handle, photoIndices }));
-const HIGH_RES_IMAGE_MAP = {
-  '1.jpeg': 'High-res photos/1.jpeg',
-  '2.jpeg': 'High-res photos/2.jpeg',
-  '3.jpeg': 'High-res photos/3.jpeg',
-  '4.jpeg': 'High-res photos/4.jpeg',
-  '5.jpeg': 'High-res photos/5.jpeg',
-  'PGN_5921.jpg': 'High-res photos/PGN_5921.jpg',
-  'PGN_5948.jpg': 'High-res photos/PGN_5948.jpg',
-  'PGN_5960.jpg': 'High-res photos/PGN_5960.jpg',
-  'PGN_6062.jpg': 'High-res photos/PGN_6062.jpg',
-  'PGN_6069.jpg': 'High-res photos/PGN_6069.jpg',
-  'PGN_6316.jpg': 'High-res photos/PGN_6316.jpg',
-  'PGN_6321.jpg': 'High-res photos/PGN_6321.jpg',
-  'PGN_6353.jpg': 'High-res photos/PGN_6353.jpg',
-};
-
 function normalizeGridSize(size) {
   if (size === 'tall') return 'tall';
   if (size === 'wide' || size === 'horizontal') return 'horizontal';
@@ -66,14 +50,7 @@ function normalizeGridSize(size) {
 }
 
 function getLightboxSrc(file) {
-  const filename = file.split('/').pop();
-  return HIGH_RES_IMAGE_MAP[filename] || file;
-}
-
-function getGallerySrcset(file) {
-  const highRes = getLightboxSrc(file);
-  if (highRes === file) return '';
-  return `${encodeURI(file)} 1x, ${encodeURI(highRes)} 2x`;
+  return file;
 }
 
 function getDefaultGroupedPhotoOrder() {
@@ -434,18 +411,16 @@ function updateSlotImageInDom(slotIndex) {
 
   const { file } = SITE.photos[photoIndex];
   const img = item.querySelector('img');
-  const srcset = getGallerySrcset(file);
   const objectPosition = getDraftPhotoObjectPosition(photoIndex);
 
   item.dataset.photoIndex = String(photoIndex);
-  item.dataset.fullSrc = getLightboxSrc(file);
+  item.dataset.fullSrc = file;
   item.dataset.photographer = PHOTO_GROUPS.find(({ photoIndices }) => photoIndices.includes(photoIndex))?.handle || '';
 
   if (img) {
     img.src = file;
     img.style.objectPosition = objectPosition;
-    if (srcset) img.setAttribute('srcset', srcset);
-    else img.removeAttribute('srcset');
+    img.removeAttribute('srcset');
   }
 }
 
@@ -855,9 +830,7 @@ function renderGrid() {
       : '';
     const objectPosition = getDraftPhotoObjectPosition(index);
     const imgStyle = objectPosition ? ` style="object-position:${objectPosition}"` : '';
-    const srcset = getGallerySrcset(file);
-    const srcsetAttr = srcset ? ` srcset="${srcset}"` : '';
-    div.innerHTML = `<img src="${file}" alt="" loading="lazy" draggable="false"${srcsetAttr}${imgStyle}><div class="grid-overlay"></div>${label}`;
+    div.innerHTML = `<img src="${file}" alt="" loading="lazy" draggable="false"${imgStyle}><div class="grid-overlay"></div>${label}`;
     grid.appendChild(div);
     observer.observe(div);
   });
