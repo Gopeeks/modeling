@@ -14,11 +14,12 @@ document.getElementById('about-cta').href           = SITE.aboutCtaLink;
 document.getElementById('contact-heading').innerHTML = SITE.contactHeading.join('<br>');
 document.getElementById('contact-body').textContent  = SITE.contactBody;
 const emailEl = document.getElementById('contact-email');
-emailEl.textContent = SITE.email;
+emailEl.textContent = 'Email';
 emailEl.href = `mailto:${SITE.email}`;
 document.getElementById('social-instagram').textContent = 'Instagram';
 document.getElementById('social-instagram').href       = SITE.instagram;
-document.getElementById('footer-text').textContent   = SITE.footerText;
+document.getElementById('footer-text').textContent     = SITE.footerText;
+document.getElementById('footer-location').textContent = SITE.location;
 
 // ── Build experience section
 const expList = document.getElementById('experience-list');

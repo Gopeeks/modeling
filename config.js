@@ -18,6 +18,14 @@ const SITE = {
       credit: "Bumble (Acquired Brand Campaign)",
       detail: "New York City subway ads & digital campaign",
     },
+    {
+      credit: "Saj Dhaj Ke",
+      detail: "Brand imagery featured on official website",
+    },
+    {
+      credit: "Revare",
+      detail: "Brand imagery",
+    },
   ],
 
   // ── Stats
@@ -40,11 +48,14 @@ const SITE = {
   aboutCtaLink: "#contact",
 
   // ── Contact section
-  contactHeading: ["Let's Create", "Something Beautiful"],
+  contactHeading: ["Let's Connect"],
   contactBody: "Available for editorial, commercial, and artistic collaborations.",
   email:     "contact@gopikanair.co",
   instagram: "https://instagram.com/gopeeks",
   linkedin:  "https://linkedin.com/in/yourhandle",
+
+  // ── Location
+  location: "New York City & San Francisco Bay Area",
 
   // ── Footer
   footerText: `© ${new Date().getFullYear()} Gopika Nair. All rights reserved.`,
