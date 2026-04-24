@@ -24,8 +24,35 @@ from tornado.log import LogFormatter
 
 ROOT = Path(__file__).resolve().parent
 GRID_LAYOUT_FILE = ROOT / 'grid-layout.js'
+COMP_LAYOUT_FILE = ROOT / 'comp-layout.js'
 HOST = '127.0.0.1'
 PORT = 5500
+
+
+def build_comp_layout_source(payload):
+    hero_pos   = payload.get('heroPos')
+    hero_image = payload.get('heroImage')
+    photo_positions = payload.get('photoPositions', {})
+    photo_files     = payload.get('photoFiles', {})
+
+    def clean_str(v):
+        return v.strip() if isinstance(v, str) and v.strip() else None
+
+    def clean_dict(d):
+        return {
+            str(int(k)): v.strip()
+            for k, v in d.items()
+            if str(k).isdigit() and isinstance(v, str) and v.strip()
+        }
+
+    export_payload = {
+        'heroPos':        clean_str(hero_pos),
+        'heroImage':      clean_str(hero_image),
+        'photoPositions': clean_dict(photo_positions),
+        'photoFiles':     clean_dict(photo_files),
+    }
+
+    return "window.COMP_LAYOUT = " + json.dumps(export_payload, indent=2) + ";\n"
 
 
 def build_grid_layout_source(payload):
@@ -50,6 +77,33 @@ def build_grid_layout_source(payload):
     }
 
     return "window.GRID_LAYOUT = " + json.dumps(export_payload, indent=2) + ";\n"
+
+
+class CompLayoutSaveHandler(web.RequestHandler):
+    def set_default_headers(self):
+        self.set_header('Cache-Control', 'no-store')
+
+    def options(self):
+        self.set_status(204)
+        self.finish()
+
+    def post(self):
+        try:
+            payload = escape.json_decode(self.request.body or b'{}')
+        except json.JSONDecodeError:
+            self.set_status(400)
+            self.write({'error': 'Invalid JSON payload'})
+            return
+
+        try:
+            COMP_LAYOUT_FILE.write_text(build_comp_layout_source(payload), encoding='utf-8')
+        except OSError as error:
+            self.set_status(500)
+            self.write({'error': f'Failed to write comp layout: {error}'})
+            return
+
+        self.set_status(204)
+        self.finish()
 
 
 class GridLayoutSaveHandler(web.RequestHandler):
@@ -110,6 +164,7 @@ def main():
 
     app = web.Application(
         handlers=[
+            (r'/save-comp-layout', CompLayoutSaveHandler),
             (r'/save-grid-layout', GridLayoutSaveHandler),
             (r'/livereload', LiveReloadHandler),
             (r'/forcereload', ForceReloadHandler),

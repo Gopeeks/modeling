@@ -88,6 +88,27 @@ const SITE = {
   // ── Footer
   footerText: `© ${new Date().getFullYear()} Gopika Nair. All rights reserved.`,
 
+  // ── Comp card
+  compHeroImage: "photos/PGN_6062.jpg",
+  compHeroPos:   "57% 0%",
+  compPhotoPool: [
+    "photos/comp/IMG_3468.jpg",
+    "photos/comp/IMG_3469.jpg",
+    "photos/comp/IMG_3470.jpg",
+    "photos/comp/IMG_3474.jpg",
+    "photos/comp/IMG_3475.jpg",
+    "photos/comp/IMG_3476.jpg",
+    "photos/comp/IMG_3477.jpg",
+    "photos/comp/IMG_3478.jpg",
+    "photos/comp/IMG_3483.jpg",
+  ],
+  compPhotos: [
+    { file: "photos/comp/IMG_3475.jpg", pos: "center 12%" },
+    { file: "photos/comp/IMG_3483.jpg", pos: "center 18%" },
+    { file: "photos/comp/IMG_3477.jpg", pos: "44% 10%" },
+    { file: "photos/comp/IMG_3470.jpg", pos: "center 10%" },
+  ],
+
   // ── Portfolio images
   // size: "normal" | "tall" (2x height) | "wide" (2x width)
   // pos: CSS object-position to control crop

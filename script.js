@@ -25,10 +25,13 @@ SITE.experience.forEach(({ credit, detail }) => {
 });
 
 const photographerLinks = document.getElementById('photographer-links');
-SITE.photographerCredits.forEach(({ handle, photoIndices }) => {
+SITE.photographerCredits.forEach(({ handle, url, photoIndices }) => {
+  const nameEl = url
+    ? `<a class="photographer-name photographer-name-link" href="${url}" target="_blank" rel="noopener">${handle}</a>`
+    : `<span class="photographer-name">${handle}</span>`;
   photographerLinks.innerHTML += `
     <div class="photographer-item">
-      <span class="photographer-name">${handle}</span>
+      ${nameEl}
       <a class="photographer-photos-link" href="#portfolio" data-photographer="${handle}" data-photo-indices="${photoIndices.join(',')}">Photos</a>
     </div>`;
 });
@@ -1125,6 +1128,14 @@ photographerLinks.addEventListener('click', (e) => {
   const nextHandle = activePhotographerFilter === link.dataset.photographer ? null : link.dataset.photographer;
   applyPhotographerFilter(nextHandle);
 
+  if (nextHandle) {
+    // Scroll to the first photo belonging to this photographer
+    const firstPhoto = document.querySelector(`.grid-item[data-photographer="${CSS.escape(nextHandle)}"]`);
+    if (firstPhoto) {
+      firstPhoto.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return;
+    }
+  }
   const target = document.querySelector(link.getAttribute('href'));
   if (target) target.scrollIntoView({ behavior: 'smooth' });
 });
