@@ -952,6 +952,7 @@ const LB_ZOOM_SCALE = 2.5;
 let lbZoomed = false;
 let lbPanX = 0, lbPanY = 0;
 let lbPanDrag = null;
+let lbLastPanWasMoved = false; // preserved across pointerup → click
 
 function applyLbTransform() {
   lbImg.style.transform = lbZoomed
@@ -960,14 +961,14 @@ function applyLbTransform() {
 }
 
 function resetLbZoom() {
-  lbZoomed = false; lbPanX = 0; lbPanY = 0; lbPanDrag = null;
+  lbZoomed = false; lbPanX = 0; lbPanY = 0; lbPanDrag = null; lbLastPanWasMoved = false;
   lbImg.classList.remove('lb-zoomed', 'lb-panning');
   applyLbTransform();
 }
 
 lbImg.addEventListener('click', e => {
   e.stopPropagation();
-  if (lbPanDrag?.moved) return; // was a pan, not a click
+  if (lbLastPanWasMoved) { lbLastPanWasMoved = false; return; } // was a pan, not a tap
   if (lbZoomed) {
     resetLbZoom();
   } else {
@@ -980,6 +981,7 @@ lbImg.addEventListener('click', e => {
 lbImg.addEventListener('pointerdown', e => {
   if (!lbZoomed) return;
   e.preventDefault(); e.stopPropagation();
+  lbLastPanWasMoved = false;
   lbPanDrag = { startX: e.clientX, startY: e.clientY, originX: lbPanX, originY: lbPanY, moved: false };
   lbImg.classList.add('lb-panning');
   lbImg.setPointerCapture(e.pointerId);
@@ -997,6 +999,7 @@ lbImg.addEventListener('pointermove', e => {
 
 lbImg.addEventListener('pointerup', () => {
   if (!lbPanDrag) return;
+  lbLastPanWasMoved = lbPanDrag.moved; // save before clearing
   lbImg.classList.remove('lb-panning');
   lbPanDrag = null;
 });
