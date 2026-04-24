@@ -53,18 +53,18 @@ const SITE = {
   // size: "normal" | "tall" (2x height) | "wide" (2x width)
   // pos: CSS object-position to control crop
   photos: [
-    { file: "photos/PGN_5921.jpg",   size: "tall",   pos: "center 8%" },
-    { file: "photos/PGN_5948.jpg",   size: "tall",   pos: "center 5%" },
+    { file: "photos/PGN_5921.jpg",   size: "tall",   pos: "center 8%" },  // pinned tall
+    { file: "photos/PGN_5948.jpg",   size: "tall",   pos: "center 5%" },  // pinned tall
     { file: "photos/PGN_5960.jpg",   size: "normal", pos: "center 6%" },
     { file: "photos/PGN_6062.jpg",   size: "normal", pos: "57% 8%" },
     { file: "photos/PGN_6069.jpg",   size: "tall",   pos: "center 7%" },
-    { file: "photos/PGN_6316.jpg",   size: "normal", pos: "center 6%" },
+    { file: "photos/PGN_6316.jpg",   size: "tall",   pos: "center 6%" },  // pinned tall
     { file: "photos/PGN_6321.jpg",   size: "normal", pos: "43% 8%" },
-    { file: "photos/PGN_6353.jpg",   size: "tall",   pos: "center 3%" },
+    { file: "photos/PGN_6353.jpg",   size: "tall",   pos: "center 3%" },  // pinned tall
     { file: "photos/1.jpeg",         size: "normal", pos: "center 17%" },
-    { file: "photos/2.jpeg",         size: "tall",   pos: "center 28%" },
+    { file: "photos/2.jpeg",         size: "tall",   pos: "center 28%" },  // pinned tall
     { file: "photos/3.jpeg",         size: "normal", pos: "41% 10%" },
-    { file: "photos/4.jpeg",         size: "normal", pos: "center 10%" },
+    { file: "photos/4.jpeg",         size: "tall",   pos: "center 10%" },  // pinned tall
     { file: "photos/5.jpeg",         size: "normal", pos: "42% 27%" },
     { file: "photos/IMG_9151.jpg",   size: "normal", pos: "78% 45%" },
     { file: "photos/IMG_9179.jpg",   size: "normal", pos: "center 12%" },
@@ -80,12 +80,12 @@ const SITE = {
     { file: "photos/IMG_3457.JPG",   size: "normal", pos: "center 12%" },
     { file: "photos/IMG_3461.JPG",   size: "normal", pos: "center 10%" },
     { file: "photos/IMG_3462.JPG",   size: "normal", pos: "center 10%" },
-    { file: "photos/IMG_6937.JPG",   size: "tall",   pos: "center 12%" },
+    { file: "photos/IMG_6937.JPG",   size: "tall",   pos: "center 12%" },  // pinned tall
     { file: "photos/IMG_6940.JPG",   size: "tall",   pos: "center 10%" },
-    { file: "photos/IMG_6964.JPG",   size: "tall",   pos: "center 12%" },
-    { file: "photos/Gopika-3833.jpg",  size: "normal", pos: "center 22%" },
-    { file: "photos/Gopika-3925.jpeg", size: "tall",   pos: "center 22%" },
-    { file: "photos/IMG_3632.JPG",     size: "normal", pos: "center 12%" },
+    { file: "photos/IMG_6964.JPG",   size: "normal", pos: "center 12%" },
+    { file: "photos/Gopika-3833.jpg",  size: "tall",   pos: "center 22%" },  // pinned tall
+    { file: "photos/Gopika-3925.jpeg", size: "normal", pos: "center 22%" },
+    { file: "photos/IMG_3632.JPG",     size: "tall",   pos: "center 12%" },  // pinned tall
     { file: "photos/IMG_3703.JPG",     size: "normal", pos: "center 12%" },
   ],
 };
