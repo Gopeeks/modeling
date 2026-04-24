@@ -53,7 +53,6 @@ const SITE = {
   // size: "normal" | "tall" (2x height) | "wide" (2x width)
   // pos: CSS object-position to control crop
   photos: [
-    { file: "photos/PGN_5848.jpg",   size: "tall",   pos: "center 12%" },
     { file: "photos/PGN_5921.jpg",   size: "tall",   pos: "center 8%" },
     { file: "photos/PGN_5948.jpg",   size: "tall",   pos: "center 5%" },
     { file: "photos/PGN_5960.jpg",   size: "normal", pos: "center 6%" },
@@ -62,8 +61,6 @@ const SITE = {
     { file: "photos/PGN_6316.jpg",   size: "normal", pos: "center 6%" },
     { file: "photos/PGN_6321.jpg",   size: "normal", pos: "43% 8%" },
     { file: "photos/PGN_6353.jpg",   size: "tall",   pos: "center 3%" },
-    { file: "photos/PGN_6418.jpg",   size: "normal", pos: "center 5%" },
-    { file: "photos/PGN_6462.jpg",   size: "normal", pos: "center 10%" },
     { file: "photos/1.jpeg",         size: "normal", pos: "center 17%" },
     { file: "photos/2.jpeg",         size: "tall",   pos: "center 28%" },
     { file: "photos/3.jpeg",         size: "normal", pos: "41% 10%" },
@@ -74,7 +71,6 @@ const SITE = {
     { file: "photos/IMG_9214.jpg",   size: "tall",   pos: "center 12%" },
     { file: "photos/IMG_9249.jpg",   size: "normal", pos: "center 11%" },
     { file: "photos/IMG_9254.jpg",   size: "normal", pos: "center 14%" },
-    { file: "photos/IMG_9255.jpg",   size: "tall",   pos: "center 12%" },
     { file: "photos/IMG_9263.jpg",   size: "normal", pos: "center 21%" },
     { file: "photos/IMG_9279.jpg",   size: "normal", pos: "center 14%" },
     { file: "photos/IMG_3459.JPG",   size: "tall",   pos: "center 8%" },
