@@ -15,13 +15,11 @@
       font-family: 'Montserrat', sans-serif;
       min-height: 100vh;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       padding: 2.5rem;
     }
 
-    /* ── Print button */
     .print-btn {
       position: fixed;
       top: 1.5rem;
@@ -36,7 +34,6 @@
       text-transform: uppercase;
       cursor: pointer;
       z-index: 100;
-      transition: background 0.2s;
     }
     .print-btn:hover { background: #444; }
 
@@ -47,159 +44,136 @@
       @page { size: 8.5in 11in; margin: 0; }
     }
 
-    /* ══════════════════════════════════
-       CARD  —  8.5 × 11 in, single page
-    ══════════════════════════════════ */
+    /* ── Card */
     .card {
       width: 8.5in;
       height: 11in;
       background: #fff;
-      display: grid;
-      grid-template-columns: 58% 42%;
+      display: flex;
+      flex-direction: column;
       overflow: hidden;
       box-shadow: 0 16px 60px rgba(0,0,0,0.22);
     }
 
-    /* ── Left column: hero photo */
-    .col-photo {
-      position: relative;
-      overflow: hidden;
+    /* ── 4 photos in a row */
+    .photos-row {
+      flex: 1;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3px;
+      background: #e8e8e8;
     }
 
-    .col-photo img {
+    .photos-row img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 5%;
       display: block;
     }
 
-    /* ── Right column: all info */
-    .col-info {
-      display: flex;
-      flex-direction: column;
-      padding: 0.58in 0.44in 0.42in 0.46in;
-      border-left: 1px solid #e2e2e2;
+    .photos-row img:nth-child(1) { object-position: center 8%;  }
+    .photos-row img:nth-child(2) { object-position: center 16%; }
+    .photos-row img:nth-child(3) { object-position: 44% 14%;    }
+    .photos-row img:nth-child(4) { object-position: center 22%; }
+
+    /* ── Info bar */
+    .info-bar {
+      flex-shrink: 0;
+      height: 3.1in;
+      display: grid;
+      grid-template-columns: 1.6fr 2fr 1.3fr;
+      gap: 0.5in;
+      border-top: 1.5px solid #111;
+      padding: 0.38in 0.52in 0.35in;
+      align-items: start;
     }
 
-    /* — Name block */
-    .name {
+    /* — Name */
+    .name-col h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 3rem;
+      font-size: 2.3rem;
       font-weight: 300;
       line-height: 1.0;
       color: #0d0d0d;
-      letter-spacing: 0.025em;
+      letter-spacing: 0.02em;
     }
 
-    .location {
-      margin-top: 0.4rem;
-      font-size: 0.5rem;
-      letter-spacing: 0.3em;
+    .name-col .city {
+      font-size: 0.46rem;
+      letter-spacing: 0.28em;
       text-transform: uppercase;
-      color: #b0b0b0;
+      color: #bbb;
+      margin-top: 0.35rem;
       font-weight: 400;
-    }
-
-    /* — Secondary photos */
-    .secondary-photos {
-      flex: 1;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 5px;
-      margin: 0.4in 0 0.36in;
-      min-height: 0;
-      overflow: hidden;
-    }
-
-    .secondary-photos img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
       display: block;
     }
 
-    /* IMG_3483 — neutral front, zoom to face */
-    .secondary-photos img:nth-child(1) { object-position: center 18%; }
-    /* IMG_3477 — angled, zoom to face */
-    .secondary-photos img:nth-child(2) { object-position: 45% 15%; }
-    /* IMG_3470 — closer 3/4, already tighter crop */
-    .secondary-photos img:nth-child(3) { object-position: center 17%; }
-
-    /* — Stats */
-    .stats-block {
-      border-top: 1px solid #e8e8e8;
-      padding-top: 0.28in;
-      margin-bottom: 0.27in;
+    .name-col .credit {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.78rem;
+      color: #999;
+      margin-top: 0.55in;
+      display: block;
+      line-height: 1.4;
     }
 
-    .stats-grid {
+    .name-col .credit-sub {
+      font-size: 0.42rem;
+      letter-spacing: 0.06em;
+      color: #ccc;
+      display: block;
+      margin-top: 0.1rem;
+    }
+
+    /* — Stats */
+    .stats-col {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 0.19in 0.05in;
+      gap: 0.22in 0.3in;
+      align-content: start;
     }
 
     .stat-label {
       display: block;
-      font-size: 0.41rem;
+      font-size: 0.4rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: #c0c0c0;
-      margin-bottom: 0.06rem;
+      margin-bottom: 0.05rem;
     }
 
     .stat-value {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.08rem;
+      font-size: 1rem;
       font-weight: 400;
       color: #111;
       line-height: 1;
     }
 
-    /* — Contact + credits */
-    .contact-block {
-      border-top: 1px solid #e8e8e8;
-      padding-top: 0.22in;
+    /* — Contact */
+    .contact-col {
       display: flex;
       flex-direction: column;
-      gap: 0.13in;
+      gap: 0.12in;
+      text-align: right;
     }
 
-    .credits-line {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.82rem;
-      font-style: italic;
-      color: #777;
-    }
-
-    .credits-sub {
-      font-size: 0.44rem;
-      color: #c0c0c0;
-      letter-spacing: 0.07em;
-      display: block;
-      margin-top: 0.05rem;
-    }
-
-    .contact-links {
-      display: flex;
-      flex-direction: column;
-      gap: 0.07in;
-      margin-top: 0.04in;
-    }
-
-    .contact-links a {
-      font-size: 0.52rem;
+    .contact-col a {
+      font-size: 0.5rem;
       color: #555;
       text-decoration: none;
       letter-spacing: 0.04em;
+      line-height: 1;
     }
 
-    .site-url {
-      margin-top: 0.12in;
+    .contact-col .site {
       font-size: 0.42rem;
-      letter-spacing: 0.22em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: #ccc;
+      margin-top: 0.1in;
     }
   </style>
 </head>
@@ -209,76 +183,66 @@
 
   <div class="card">
 
-    <!-- Left: hero full-body photo -->
-    <div class="col-photo">
+    <!-- 4 photos across top -->
+    <div class="photos-row">
       <img src="photos/comp/IMG_3475.jpg" alt="Gopika Nair">
+      <img src="photos/comp/IMG_3483.jpg" alt="Gopika Nair">
+      <img src="photos/comp/IMG_3477.jpg" alt="Gopika Nair">
+      <img src="photos/comp/IMG_3470.jpg" alt="Gopika Nair">
     </div>
 
-    <!-- Right: info panel -->
-    <div class="col-info">
+    <!-- Info strip -->
+    <div class="info-bar">
 
-      <!-- Name -->
-      <div>
-        <h1 class="name">Gopika<br>Nair</h1>
-        <p class="location">New York City</p>
+      <!-- Name + credits -->
+      <div class="name-col">
+        <h1>Gopika<br>Nair</h1>
+        <span class="city">New York City</span>
+        <span class="credit">Bumble</span>
+        <span class="credit-sub">NYC Subway &amp; Digital Campaign</span>
       </div>
 
-      <!-- Three secondary photos -->
-      <div class="secondary-photos">
-        <img src="photos/comp/IMG_3483.jpg" alt="Gopika Nair">
-        <img src="photos/comp/IMG_3477.jpg" alt="Gopika Nair">
-        <img src="photos/comp/IMG_3470.jpg" alt="Gopika Nair">
-      </div>
-
-      <!-- Stats -->
-      <div class="stats-block">
-        <div class="stats-grid">
-          <div>
-            <span class="stat-label">Height</span>
-            <span class="stat-value">5′9″</span>
-          </div>
-          <div>
-            <span class="stat-label">Bust</span>
-            <span class="stat-value">32″</span>
-          </div>
-          <div>
-            <span class="stat-label">Waist</span>
-            <span class="stat-value">27″</span>
-          </div>
-          <div>
-            <span class="stat-label">Hips</span>
-            <span class="stat-value">35″</span>
-          </div>
-          <div>
-            <span class="stat-label">Dress</span>
-            <span class="stat-value">S / 4</span>
-          </div>
-          <div>
-            <span class="stat-label">Shoe</span>
-            <span class="stat-value">8</span>
-          </div>
-          <div>
-            <span class="stat-label">Hair</span>
-            <span class="stat-value">Brown</span>
-          </div>
-          <div>
-            <span class="stat-label">Eyes</span>
-            <span class="stat-value">Brown</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Credits + Contact -->
-      <div class="contact-block">
+      <!-- Measurements -->
+      <div class="stats-col">
         <div>
-          <span class="credits-line">Bumble</span>
-          <span class="credits-sub">NYC Subway &amp; Digital Campaign</span>
+          <span class="stat-label">Height</span>
+          <span class="stat-value">5′9″</span>
         </div>
-        <div class="contact-links">
-          <a href="mailto:contact@gopikanair.co">contact@gopikanair.co</a>
-          <a href="https://instagram.com/gopeeks">instagram.com/gopeeks</a>
+        <div>
+          <span class="stat-label">Bust</span>
+          <span class="stat-value">32″</span>
         </div>
-        <p class="site-url">gopikanair.co</p>
+        <div>
+          <span class="stat-label">Waist</span>
+          <span class="stat-value">27″</span>
+        </div>
+        <div>
+          <span class="stat-label">Hips</span>
+          <span class="stat-value">35″</span>
+        </div>
+        <div>
+          <span class="stat-label">Dress</span>
+          <span class="stat-value">S / 4</span>
+        </div>
+        <div>
+          <span class="stat-label">Shoe</span>
+          <span class="stat-value">8</span>
+        </div>
+        <div>
+          <span class="stat-label">Hair</span>
+          <span class="stat-value">Brown</span>
+        </div>
+        <div>
+          <span class="stat-label">Eyes</span>
+          <span class="stat-value">Brown</span>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div class="contact-col">
+        <a href="mailto:contact@gopikanair.co">contact@gopikanair.co</a>
+        <a href="https://instagram.com/gopeeks">instagram.com/gopeeks</a>
+        <span class="site">gopikanair.co</span>
       </div>
 
     </div>
