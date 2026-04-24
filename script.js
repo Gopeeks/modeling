@@ -945,10 +945,35 @@ function applyPhotographerFilter(handle) {
   }
 }
 
+const lbThumbs = document.getElementById('lb-thumbs');
+
+function buildLbThumbs() {
+  lbThumbs.innerHTML = '';
+  items.forEach((item, i) => {
+    const src = item.querySelector('img')?.src || '';
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = '';
+    img.dataset.lbIndex = i;
+    if (i === current) img.classList.add('lb-thumb-active');
+    lbThumbs.appendChild(img);
+  });
+}
+
+function updateLbThumbs() {
+  lbThumbs.querySelectorAll('img').forEach((img, i) => {
+    img.classList.toggle('lb-thumb-active', i === current);
+  });
+  // Scroll active thumb into view
+  const activeThumb = lbThumbs.querySelector('.lb-thumb-active');
+  if (activeThumb) activeThumb.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
+}
+
 function openLightbox(index) {
   items   = getItems();
   current = index;
   lbImg.src = items[current].dataset.fullSrc || items[current].querySelector('img').src;
+  buildLbThumbs();
   lightbox.classList.add('active');
   document.body.style.overflow = 'hidden';
 }
@@ -960,11 +985,13 @@ function showNext() {
   items   = getItems();
   current = (current + 1) % items.length;
   lbImg.src = items[current].dataset.fullSrc || items[current].querySelector('img').src;
+  updateLbThumbs();
 }
 function showPrev() {
   items   = getItems();
   current = (current - 1 + items.length) % items.length;
   lbImg.src = items[current].dataset.fullSrc || items[current].querySelector('img').src;
+  updateLbThumbs();
 }
 
 grid.addEventListener('click', (e) => {
@@ -1142,7 +1169,16 @@ photographerLinks.addEventListener('click', (e) => {
 lbClose.addEventListener('click', closeLightbox);
 lbNext.addEventListener('click', showNext);
 lbPrev.addEventListener('click', showPrev);
-lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+lightbox.addEventListener('click', (e) => {
+  const thumb = e.target.closest('#lb-thumbs img');
+  if (thumb) {
+    current = Number(thumb.dataset.lbIndex);
+    lbImg.src = items[current].dataset.fullSrc || items[current].querySelector('img').src;
+    updateLbThumbs();
+    return;
+  }
+  if (e.target === lightbox) closeLightbox();
+});
 
 document.addEventListener('keydown', (e) => {
   const keyToAxis = {

@@ -144,7 +144,5 @@ const SITE = {
     { file: "photos/IMG_3461.JPG",     size: "normal", pos: "center 10%" },
     { file: "photos/IMG_3462.JPG",     size: "normal", pos: "center 10%" },
     { file: "photos/IMG_6964.JPG",     size: "normal", pos: "center 12%" },
-    { file: "photos/Gopika-3925.jpeg", size: "normal", pos: "center 22%" },
-    { file: "photos/IMG_3703.JPG",     size: "normal", pos: "center 12%" },
   ],
 };

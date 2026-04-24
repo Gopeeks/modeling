@@ -30,9 +30,7 @@ window.GRID_LAYOUT = {
     22,
     23,
     25,
-    30,
-    32,
-    31
+    30
   ],
   "slotSizes": {
     "0": "tall",
@@ -64,10 +62,8 @@ window.GRID_LAYOUT = {
     "26": "tall",
     "27": "normal",
     "28": "normal",
-    "29": "normal",
-    "30": "normal",
-    "31": "normal",
-    "32": "normal"
+    "29": "tall",
+    "30": "tall"
   },
   "photoPositions": {
     "0": "52.7% 0.0%",
@@ -100,8 +96,6 @@ window.GRID_LAYOUT = {
     "27": "center 15%",
     "28": "center 12%",
     "29": "38.0% 10.0%",
-    "30": "30.0% 10.0%",
-    "31": "center 12%",
-    "32": "center 22%"
+    "30": "30.0% 10.0%"
   }
 };
