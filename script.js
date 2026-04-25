@@ -824,13 +824,17 @@ function renderGrid() {
     div.dataset.fullSrc = getLightboxSrc(file);
     div.dataset.photoIndex = index;
     div.dataset.slotIndex = renderIndex;
-    div.dataset.photographer = PHOTO_GROUPS.find(({ photoIndices }) => photoIndices.includes(index))?.handle || '';
+    const photographer = PHOTO_GROUPS.find(({ photoIndices }) => photoIndices.includes(index))?.handle || '';
+    div.dataset.photographer = photographer;
     const label = isDev
       ? buildDevControls(renderIndex, index)
       : '';
     const objectPosition = getDraftPhotoObjectPosition(index);
     const imgStyle = objectPosition ? ` style="object-position:${objectPosition}"` : '';
-    div.innerHTML = `<img src="${file}" alt="" loading="lazy" draggable="false"${imgStyle}><div class="grid-overlay"></div>${label}`;
+    const altText = photographer
+      ? `Gopika Nair, NYC model — photo by ${photographer}`
+      : `Gopika Nair, NYC model`;
+    div.innerHTML = `<img src="${file}" alt="${altText}" loading="lazy" draggable="false"${imgStyle}><div class="grid-overlay"></div>${label}`;
     grid.appendChild(div);
     observer.observe(div);
   });
@@ -999,11 +1003,16 @@ function updateLbThumbs() {
   if (activeThumb) activeThumb.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
 }
 
+function setLbAlt() {
+  const ph = items[current]?.dataset.photographer;
+  lbImg.alt = ph ? `Gopika Nair, NYC model — photo by ${ph}` : `Gopika Nair, NYC model`;
+}
 function openLightbox(index) {
   items   = getItems();
   current = index;
   resetLbZoom();
   lbImg.src = items[current].dataset.fullSrc || items[current].querySelector('img').src;
+  setLbAlt();
   buildLbThumbs();
   lightbox.classList.add('active');
   document.body.style.overflow = 'hidden';
@@ -1018,6 +1027,7 @@ function showNext() {
   current = (current + 1) % items.length;
   resetLbZoom();
   lbImg.src = items[current].dataset.fullSrc || items[current].querySelector('img').src;
+  setLbAlt();
   updateLbThumbs();
 }
 function showPrev() {
@@ -1025,6 +1035,7 @@ function showPrev() {
   current = (current - 1 + items.length) % items.length;
   resetLbZoom();
   lbImg.src = items[current].dataset.fullSrc || items[current].querySelector('img').src;
+  setLbAlt();
   updateLbThumbs();
 }
 
