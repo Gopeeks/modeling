@@ -446,7 +446,7 @@ body {
 .grid-item {
   -webkit-user-drag: none;
   cursor: grab;
-  touch-action: none;
+  touch-action: pan-y;
 }
 .grid-item:active {
   cursor: grabbing;
