@@ -64,7 +64,7 @@ const SITE = {
     hips:      `35"`,
     dress:     `S`,
     shoe:      `8`,
-    hair:      `Brown`,
+    hair:      `Black`,
     eyes:      `Brown`,
   },
 
@@ -89,7 +89,7 @@ const SITE = {
   footerText: `© ${new Date().getFullYear()} Gopika Nair. All rights reserved.`,
 
   // ── Comp card
-  compHeroImage: "photos/PGN_6062.jpg",
+  compHeroImage: "photos/comp/hero_PGN_6062.jpg",
   compHeroPos:   "57% 0%",
   compPhotoPool: [
     "photos/comp/IMG_3468.jpg",
@@ -103,10 +103,10 @@ const SITE = {
     "photos/comp/IMG_3483.jpg",
   ],
   compPhotos: [
-    { file: "photos/comp/IMG_3475.jpg", pos: "center 12%" },
-    { file: "photos/comp/IMG_3483.jpg", pos: "center 18%" },
-    { file: "photos/comp/IMG_3477.jpg", pos: "44% 10%" },
-    { file: "photos/comp/IMG_3470.jpg", pos: "center 10%" },
+    { file: "photos/comp/IMG_3470.jpg", pos: "center center" },
+    { file: "photos/comp/IMG_3475.jpg", pos: "center center" },
+    { file: "photos/comp/IMG_3483.jpg", pos: "center center" },
+    { file: "photos/comp/IMG_3477.jpg", pos: "center center" },
   ],
 
   // ── Portfolio images

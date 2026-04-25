@@ -68,7 +68,7 @@ body {
 /* ── HERO ── */
 #hero {
   position: relative;
-  height: 100vh;
+  height: 75vh;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
@@ -78,11 +78,11 @@ body {
   inset: 0;
   background-size: cover;
   background-position: center top;
-  transform: scale(1.05);
+  transform: scale(1.18);
   animation: heroZoom 8s ease-out forwards;
 }
 @keyframes heroZoom {
-  to { transform: scale(1); }
+  to { transform: scale(1.12); }
 }
 .hero-overlay {
   position: absolute;
@@ -105,7 +105,7 @@ body {
   letter-spacing: 0.35em;
   text-transform: uppercase;
   color: var(--gold);
-  margin-bottom: 0.75rem;
+  margin-bottom: 2.5rem;
   opacity: 0;
   animation: fadeUp 1s 0.5s ease forwards;
 }
@@ -173,7 +173,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  padding: 1.5rem 0;
+  padding: 0.6rem 0;
   border-bottom: 1px solid rgba(255,255,255,0.06);
   gap: 2rem;
 }
@@ -194,8 +194,7 @@ body {
 }
 .photographer-credits {
   margin-top: 2.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(255,255,255,0.06);
+  padding-top: 0;
 }
 .photographer-label {
   font-size: 0.58rem;
@@ -213,9 +212,10 @@ body {
   justify-content: space-between;
   align-items: baseline;
   gap: 2rem;
-  padding: 1.2rem 0;
+  padding: 0.6rem 0;
   border-bottom: 1px solid rgba(255,255,255,0.06);
 }
+.photographer-item:first-child { border-top: 1px solid rgba(255,255,255,0.06); }
 .photographer-name {
   font-family: var(--font-serif);
   font-size: 1.3rem;
@@ -538,7 +538,7 @@ body {
 
 /* ── CONTACT ── */
 #contact {
-  padding: 10rem 4rem;
+  padding: 3rem 4rem 6rem;
   background: var(--black);
   text-align: center;
 }

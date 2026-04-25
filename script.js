@@ -1273,6 +1273,32 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowLeft')  showPrev();
 }, true);
 
+// ── Analytics event tracking ──────────────────────────────────────────────────
+function gaEvent(name, params) {
+  if (typeof gtag === 'function') gtag('event', name, params);
+}
+
+// Contact button clicks
+document.getElementById('contact-email').addEventListener('click', () => {
+  gaEvent('contact_click', { method: 'email' });
+});
+document.getElementById('social-instagram').addEventListener('click', () => {
+  gaEvent('contact_click', { method: 'instagram' });
+});
+
+// Comp card link click (nav)
+document.querySelectorAll('a[href="comp-card.html"]').forEach(el => {
+  el.addEventListener('click', () => gaEvent('comp_card_view'));
+});
+
+// Lightbox open — track which photo was viewed
+const _origOpenLightbox = openLightbox;
+openLightbox = function(index) {
+  _origOpenLightbox(index);
+  const file = SITE.photos[devGridState.order[index]]?.file?.split('/').pop() || String(index);
+  gaEvent('photo_view', { photo: file });
+};
+
 // ── Lightbox swipe (mobile)
 let touchStartX = 0;
 lightbox.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });

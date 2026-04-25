@@ -357,15 +357,98 @@
       text-transform: uppercase;
     }
 
-    /* ── Responsive ── */
-    @media screen and (max-width: 900px) {
-      body { padding: 1rem; }
+    /* ── Responsive: tablet ── */
+    @media screen and (max-width: 960px) {
+      body { padding: 1.5rem; gap: 1.5rem; }
       .print-btn { top: 1rem; right: 1rem; }
       .sheet { width: min(8.5in, 100%); height: auto; }
-      .sheet-1 { grid-template-rows: auto auto; }
-      .sheet-2 { grid-template-rows: auto auto; }
-      .hero-photo img { height: auto; }
+      .sheet-1 { padding: 0.4in; grid-template-rows: auto auto; gap: 0.2in; }
+      .sheet-2 { padding: 0.4in; grid-template-rows: auto auto; gap: 0.2in; }
+      .hero-photo { aspect-ratio: 2/3; }
       .measurements { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    /* ── Responsive: mobile ── */
+    @media screen and (max-width: 600px) {
+      body {
+        padding: 0;
+        gap: 0;
+        background: var(--paper);
+        justify-content: flex-start;
+      }
+
+      .print-btn { display: none; }
+
+      .sheet {
+        width: 100%;
+        height: auto;
+        box-shadow: none;
+      }
+
+      .sheet-1 {
+        padding: 1.5rem 1.25rem 1.25rem;
+        grid-template-rows: auto auto;
+        gap: 1.1rem;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .sheet-2 {
+        padding: 1.25rem 1.25rem 2rem;
+        grid-template-rows: auto auto;
+        gap: 1.1rem;
+      }
+
+      .header {
+        grid-template-columns: 1fr;
+        align-items: start;
+        gap: 0.6rem;
+        padding-bottom: 0.85rem;
+      }
+
+      .name-block h1 {
+        font-size: clamp(2.8rem, 13vw, 4rem);
+        line-height: 0.88;
+      }
+
+      .name-block p {
+        margin-top: 0.45rem;
+        font-size: 0.6rem;
+        letter-spacing: 0.13em;
+      }
+
+      .contact-block {
+        text-align: left;
+        font-size: 0.72rem;
+      }
+
+      .hero-photo {
+        aspect-ratio: 3/4;
+        height: auto;
+      }
+
+      .gallery {
+        gap: 0.4rem;
+      }
+
+      .gallery img {
+        aspect-ratio: 3/4;
+      }
+
+      .measurements {
+        grid-template-columns: repeat(4, 1fr);
+        padding-top: 0.85rem;
+        padding-bottom: 0;
+        gap: 0.6rem 0.5rem;
+      }
+
+      .measurement-label {
+        font-size: 0.52rem;
+        letter-spacing: 0.13em;
+      }
+
+      .measurement-value {
+        font-size: 0.95rem;
+      }
     }
 
     /* ── Print ── */
