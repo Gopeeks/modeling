@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sort -k5 -rh)",
+      "Bash(sips -g pixelWidth -g pixelHeight \"/Users/gopika/Projects/modeling/photos/PGN_6062.jpg\")"
+    ]
+  }
+}
