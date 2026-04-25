@@ -68,7 +68,8 @@ body {
 /* ── HERO ── */
 #hero {
   position: relative;
-  height: 75vh;
+  height: 100vh;
+  height: 100dvh;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
@@ -80,6 +81,7 @@ body {
   background-position: center top;
   transform: scale(1.18);
   animation: heroZoom 8s ease-out forwards;
+  will-change: transform;
 }
 @keyframes heroZoom {
   to { transform: scale(1.12); }
@@ -229,11 +231,14 @@ body {
   text-transform: uppercase;
   color: var(--muted);
   text-decoration: none;
-  transition: color 0.25s ease;
+  border-bottom: 1px solid rgba(136,136,136,0.4);
+  padding-bottom: 1px;
+  transition: color 0.25s ease, border-color 0.25s ease;
 }
 .photographer-photos-link:hover,
 .photographer-photos-link.active {
-  color: var(--white);
+  color: var(--gold);
+  border-color: var(--gold);
 }
 .photographer-name-link {
   text-decoration: none;
@@ -746,7 +751,12 @@ footer {
 /* ── RESPONSIVE: MOBILE ── */
 @media (max-width: 768px) {
   #nav { padding: 1.1rem 1.5rem; }
-  #nav.scrolled { padding: 0.8rem 1.5rem; }
+  #nav.scrolled {
+    padding: 0.8rem 1.5rem;
+    backdrop-filter: none; /* remove blur — expensive on mobile */
+  }
+
+  .mobile-menu { backdrop-filter: none; } /* remove blur — expensive on mobile */
 
   .nav-links { display: none; }
   .nav-toggle { display: flex; }
@@ -761,10 +771,15 @@ footer {
 
   footer { padding: 1.5rem; }
 
-  /* bigger lightbox tap targets */
+  /* bigger tap targets */
   #lb-close { top: 1rem; right: 1rem; font-size: 2rem; }
   #lb-prev  { left: 0.5rem; font-size: 1.5rem; padding: 1rem; }
   #lb-next  { right: 0.5rem; font-size: 1.5rem; padding: 1rem; }
+
+  /* photographer links — bigger tap target on mobile */
+  .photographer-item { padding: 0.85rem 0; }
+  .photographer-photos-link { padding: 0.5rem 0; border-bottom: none; text-decoration: underline; text-underline-offset: 3px; color: var(--gold); }
+  .photographer-photos-link.active { color: var(--white); }
 }
 
 /* ── RESPONSIVE: SMALL MOBILE ── */

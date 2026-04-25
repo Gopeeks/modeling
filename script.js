@@ -847,10 +847,12 @@ function renderGrid() {
 const nav = document.getElementById('nav');
 const navName = document.getElementById('nav-name');
 const hero = document.getElementById('hero');
+let heroHeight = hero.offsetHeight;
+window.addEventListener('resize', () => { heroHeight = hero.offsetHeight; }, { passive: true });
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 60);
-  navName.classList.toggle('visible', window.scrollY > hero.offsetHeight * 0.85);
-});
+  navName.classList.toggle('visible', window.scrollY > heroHeight * 0.85);
+}, { passive: true });
 
 // ── Scroll reveal
 const observer = new IntersectionObserver((entries) => {
