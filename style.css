@@ -299,7 +299,7 @@ body {
   object-fit: cover;
   object-position: center 20%;
   display: block;
-  transition: transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94), filter 0.25s ease, opacity 0.25s ease;
+  transition: transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94), opacity 0.25s ease;
 }
 .grid-item:hover img { transform: scale(1.04); }
 .grid-overlay {
@@ -315,6 +315,7 @@ body {
 .grid-item.dimmed img {
   filter: grayscale(1) brightness(0.32) contrast(0.9);
   opacity: 0.42;
+  transition: filter 0.25s ease, opacity 0.25s ease;
 }
 .grid-item.dimmed .grid-overlay {
   background: rgba(8,8,8,0.52);
@@ -766,6 +767,8 @@ footer {
 
   #portfolio { padding: 5rem 1rem 6rem; }
   .grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; gap: 3px; }
+  .reveal { transform: none; transition: opacity 0.5s ease; }
+  .grid-item img { transition: opacity 0.25s ease; }
 
   #contact { padding: 5rem 1.5rem; }
 
